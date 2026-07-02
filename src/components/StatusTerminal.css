@@ -1,0 +1,47 @@
+@import "../styles/tokens.css";
+
+.status-terminal {
+  background: var(--ink);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  font-family: var(--font-mono);
+}
+
+.status-terminal-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-gold { background: var(--gold); }
+.dot-clay { background: var(--clay); }
+.dot-teal { background: var(--teal-dot); }
+
+.status-terminal-row {
+  margin-bottom: 14px;
+}
+
+.status-terminal-row:last-child {
+  margin-bottom: 0;
+}
+
+.status-terminal-prompt {
+  font-size: 11.5px;
+  color: var(--text-on-dark-muted);
+  margin-bottom: 5px;
+}
+
+.status-terminal-value {
+  font-size: 12.5px;
+  color: var(--text-on-dark);
+}
+
+.status-terminal-value-accent {
+  color: var(--gold);
+}

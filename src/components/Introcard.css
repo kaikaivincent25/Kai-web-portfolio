@@ -1,0 +1,76 @@
+.intro-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card-hover);
+  transform: rotate(2deg);
+  transition: transform var(--transition-base);
+}
+
+.intro-card:hover {
+  transform: rotate(0deg) translateY(-2px);
+}
+
+.intro-card-tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 28px;
+  background: rgba(200, 86, 47, 0.25);
+  border: 1px solid rgba(200, 86, 47, 0.3);
+}
+
+.intro-card-greeting {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--space-4);
+  color: var(--color-navy);
+}
+
+.intro-card-body {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+.intro-card-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: rgba(124, 139, 93, 0.12);
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+}
+
+.intro-card-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-green);
+}
+
+.intro-card-doodle {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-card {
+    transition: none;
+  }
+}

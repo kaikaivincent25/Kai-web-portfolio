@@ -1,0 +1,64 @@
+:root {
+  /* --- Brand colors: warm & personal palette --- */
+  --color-blue: #c8562f;         /* primary accent — warm terracotta (was electric blue) */
+  --color-blue-dark: #a6431f;    /* hover/active state for primary */
+  --color-green: #7c8b5d;        /* secondary accent — soft sage/olive (was bright green) */
+  --color-navy: #2e2418;         /* darkest ink — warm charcoal-brown (was navy) */
+  --color-navy-soft: #43362590;  /* not used directly as color; see --color-ink-soft below */
+  --color-ink-soft: #4a3b2a;     /* soft dark surface, e.g. card-on-dark backgrounds */
+
+  /* --- Neutrals --- */
+  --color-white: #fffaf3;        /* warm off-white for cards, not stark white */
+  --color-bg: #f7ede0;           /* cream page background */
+  --color-border: #e8d9c3;
+  --color-text-primary: #2e2418;
+  --color-text-secondary: #7a6a56;
+  --color-text-inverse: #fffaf3;
+
+  /* --- Feedback --- */
+  --color-success: var(--color-green);
+  --color-danger: #b3492f;
+
+  /* --- Typography --- */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.5rem;
+  --fs-3xl: 3.5rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* --- Spacing scale --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* --- Radius & shadow: rounder, softer, warm-toned --- */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --shadow-card: 0 4px 20px rgba(74, 55, 33, 0.08);
+  --shadow-card-hover: 0 14px 34px rgba(74, 55, 33, 0.14);
+
+  /* --- Motion --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* --- Layout --- */
+  --container-max: 1160px;
+  --nav-height: 76px;
+}

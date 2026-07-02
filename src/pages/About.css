@@ -1,0 +1,232 @@
+.about-page {
+  padding-block: var(--space-24) var(--space-16);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin-bottom: var(--space-2);
+}
+
+/* --- Header --- */
+.about-header {
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+  margin-bottom: var(--space-12);
+}
+
+.about-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--color-white);
+  box-shadow: var(--shadow-card-hover);
+  transform: rotate(-2deg);
+}
+
+.avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #c8562f 0%, #e0895a 100%);
+  color: var(--color-text-inverse);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+}
+
+.about-header h1 {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-4);
+}
+
+.about-intro {
+  font-size: var(--fs-lg);
+  color: var(--color-text-secondary);
+  max-width: 65ch;
+}
+
+/* --- Facts strip --- */
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-16);
+}
+
+.about-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.about-fact:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.about-fact-icon {
+  color: var(--color-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.about-fact-label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.about-fact-value {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+/* --- Sections --- */
+.about-section {
+  margin-bottom: var(--space-16);
+  max-width: 70ch;
+}
+
+.about-section h2 {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-4);
+}
+
+.about-section p {
+  color: var(--color-text-secondary);
+}
+
+/* --- Philosophy: styled as a warm highlighted card, not a plain paragraph --- */
+.about-philosophy {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  max-width: none;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-card);
+}
+
+.about-philosophy-icon {
+  color: var(--color-green);
+  flex-shrink: 0;
+  margin-top: var(--space-1);
+}
+
+.about-philosophy p {
+  max-width: 65ch;
+}
+
+/* --- Skills --- */
+.about-skills-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: none;
+}
+
+.about-skills-group h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.about-skills-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* stack-item / stack-item-level / stack-item-name reused across Home + About */
+.stack-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+}
+
+.stack-item-name {
+  font-weight: var(--fw-semibold);
+}
+
+.stack-item-level {
+  font-size: var(--fs-xs);
+  text-transform: capitalize;
+  color: var(--color-text-secondary);
+}
+
+.stack-item-learning .stack-item-level {
+  color: var(--color-blue);
+}
+
+.stack-item-confident .stack-item-level {
+  color: var(--color-green);
+}
+
+/* --- Closing CTA --- */
+.about-cta {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-12);
+  text-align: center;
+}
+
+.about-cta p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.about-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .about-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .about-philosophy {
+    flex-direction: column;
+  }
+
+  .about-skills-groups {
+    grid-template-columns: 1fr;
+  }
+}
