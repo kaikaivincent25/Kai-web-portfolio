@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfile, getProjects, getSkills } from "../services/api.js";
-import IntroCard from "../components/Introcard.jsx";
+import IntroCard from "../components/IntroCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import "./Home.css";
 
