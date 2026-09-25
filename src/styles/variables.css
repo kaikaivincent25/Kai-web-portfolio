@@ -21,7 +21,8 @@
 
   /* --- Typography --- */
   --font-display: "Fraunces", "Georgia", serif;
-  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-body: "Work Sans", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, monospace;
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
@@ -61,4 +62,28 @@
   /* --- Layout --- */
   --container-max: 1160px;
   --nav-height: 76px;
+
+  /* Compatibility aliases for the legacy base stylesheet. */
+  --sand: var(--color-bg);
+  --sand-deep: rgba(245, 242, 235, 0.07);
+  --sand-line: var(--color-border);
+  --card: rgba(16, 19, 33, 0.76);
+  --ink: var(--color-navy);
+  --ink-soft: var(--color-ink-soft);
+  --ink-line: var(--color-border);
+  --clay: var(--color-blue);
+  --clay-deep: var(--color-blue-dark);
+  --clay-tint: rgba(244, 162, 97, 0.12);
+  --gold: #f4c95d;
+  --teal-dot: var(--color-green);
+  --text-strong: var(--color-text-primary);
+  --text-body: var(--color-text-secondary);
+  --text-muted: var(--color-text-secondary);
+  --text-faint: rgba(184, 186, 200, 0.72);
+  --text-on-dark: var(--color-text-primary);
+  --text-on-dark-muted: var(--color-text-secondary);
+  --success: var(--color-success);
+  --error: var(--color-danger);
+  --max-width: var(--container-max);
+  --gap-page: clamp(1.25rem, 4vw, 3rem);
 }

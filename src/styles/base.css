@@ -295,3 +295,49 @@ select:focus-visible {
 .cta-band .btn-primary:hover {
   background: var(--clay-deep);
 }
+
+/* Compatibility surface: keep this legacy entry point aligned with global.css. */
+body {
+  background: var(--sand);
+  color: var(--text-body);
+}
+
+.btn-primary {
+  background: var(--clay);
+  color: var(--text-on-dark);
+  box-shadow: 0 8px 24px rgba(244, 162, 97, 0.22);
+}
+
+.btn-primary:hover {
+  background: var(--clay-deep);
+}
+
+.btn-ghost {
+  color: var(--text-strong);
+  border-color: var(--sand-line);
+}
+
+.hero-eyebrow,
+.availability-card {
+  color: var(--text-body);
+  background: rgba(105, 199, 174, 0.1);
+  border: 1px solid rgba(105, 199, 174, 0.24);
+}
+
+.stack-item,
+.chip {
+  background: rgba(245, 242, 235, 0.06);
+  border-color: var(--sand-line);
+  color: var(--text-strong);
+}
+
+.chip-active {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--text-on-dark);
+}
+
+.empty-state {
+  background: rgba(245, 242, 235, 0.055);
+  border-color: var(--sand-line);
+}

@@ -89,7 +89,7 @@ ul {
 }
 
 .field-input::placeholder {
-  color: #b6a58e;
+  color: rgba(184, 186, 200, 0.62);
 }
 
 textarea.field-input {
