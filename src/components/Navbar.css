@@ -5,8 +5,8 @@
   height: var(--nav-height);
   display: flex;
   align-items: center;
-  background: rgba(247, 237, 224, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(12, 14, 24, 0.78);
+  backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -20,7 +20,7 @@
   font-family: var(--font-display);
   font-size: var(--fs-lg);
   font-weight: var(--fw-semibold);
-  color: var(--color-navy);
+  color: var(--color-text-primary);
 }
 
 .navbar-logo-dot {
@@ -30,7 +30,7 @@
 .navbar-links {
   display: flex;
   gap: var(--space-2);
-  background: var(--color-white);
+  background: rgba(245, 242, 235, 0.07);
   border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: var(--space-1);
@@ -46,7 +46,7 @@
 }
 
 .navbar-link:hover {
-  color: var(--color-navy);
+  color: var(--color-text-primary);
 }
 
 .navbar-link-active {

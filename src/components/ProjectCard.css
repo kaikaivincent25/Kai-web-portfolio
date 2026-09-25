@@ -2,7 +2,7 @@
   display: block;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--color-white);
+  background: rgba(16, 19, 33, 0.84);
   box-shadow: var(--shadow-card);
   border: 1px solid var(--color-border);
   transition: transform var(--transition-base), box-shadow var(--transition-base), rotate var(--transition-base);
@@ -11,6 +11,10 @@
 .project-card:hover {
   transform: translateY(-6px) rotate(-0.5deg);
   box-shadow: var(--shadow-card-hover);
+}
+
+.project-card:hover .project-card-media img {
+  transform: scale(1.04);
 }
 
 .project-card-media {
@@ -23,6 +27,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 500ms ease;
 }
 
 .project-card-media-placeholder {
@@ -51,6 +56,10 @@
   overflow: hidden;
 }
 
+.project-card-body h3 {
+  color: var(--color-text-primary);
+}
+
 .project-card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -62,8 +71,8 @@
   font-weight: var(--fw-semibold);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-blue-dark);
-  background: rgba(200, 86, 47, 0.1);
+  color: var(--color-blue);
+  background: rgba(244, 162, 97, 0.12);
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
 }

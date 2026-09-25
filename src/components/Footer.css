@@ -1,7 +1,7 @@
 .footer {
   border-top: 1px solid var(--color-border);
   margin-top: var(--space-24);
-  background: var(--color-white);
+  background: rgba(8, 10, 18, 0.78);
 }
 
 .footer-top {
@@ -21,7 +21,7 @@
   font-family: var(--font-display);
   font-size: var(--fs-lg);
   font-weight: var(--fw-semibold);
-  color: var(--color-navy);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-4);
 }
 
@@ -57,7 +57,7 @@
 .footer-socials a {
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
-  color: var(--color-navy);
+  color: var(--color-text-primary);
   transition: color var(--transition-fast), padding-left var(--transition-fast);
 }
 

@@ -16,6 +16,9 @@ body {
   font-size: var(--fs-base);
   color: var(--color-text-primary);
   background-color: var(--color-bg);
+  background-image: linear-gradient(rgba(12, 14, 24, 0.82), rgba(12, 14, 24, 0.92)), url("https://images.unsplash.com/photo-ffTJoV2Nh4c?auto=format&fit=crop&q=80&w=1920");
+  background-size: cover;
+  background-attachment: fixed;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -115,7 +118,7 @@ textarea.field-input {
 .btn-primary {
   background-color: var(--color-blue);
   color: var(--color-text-inverse);
-  box-shadow: 0 6px 16px rgba(200, 86, 47, 0.25);
+  box-shadow: 0 8px 24px rgba(244, 162, 97, 0.22);
 }
 
 .btn-primary:hover {
@@ -125,7 +128,7 @@ textarea.field-input {
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-navy);
+  color: var(--color-text-primary);
   border: 1.5px solid var(--color-border);
 }
 

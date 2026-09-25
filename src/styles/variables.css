@@ -1,23 +1,23 @@
 :root {
-  /* --- Brand colors: warm & personal palette --- */
-  --color-blue: #c8562f;         /* primary accent — warm terracotta (was electric blue) */
-  --color-blue-dark: #a6431f;    /* hover/active state for primary */
-  --color-green: #7c8b5d;        /* secondary accent — soft sage/olive (was bright green) */
-  --color-navy: #2e2418;         /* darkest ink — warm charcoal-brown (was navy) */
-  --color-navy-soft: #43362590;  /* not used directly as color; see --color-ink-soft below */
-  --color-ink-soft: #4a3b2a;     /* soft dark surface, e.g. card-on-dark backgrounds */
+  /* --- Brand colors: nocturnal ink with warm signal accents --- */
+  --color-blue: #f4a261;
+  --color-blue-dark: #e88948;
+  --color-green: #69c7ae;
+  --color-navy: #101321;
+  --color-navy-soft: #171b2e;
+  --color-ink-soft: #202640;
 
   /* --- Neutrals --- */
-  --color-white: #fffaf3;        /* warm off-white for cards, not stark white */
-  --color-bg: #f7ede0;           /* cream page background */
-  --color-border: #e8d9c3;
-  --color-text-primary: #2e2418;
-  --color-text-secondary: #7a6a56;
-  --color-text-inverse: #fffaf3;
+  --color-white: #f5f2eb;
+  --color-bg: #0c0e18;
+  --color-border: rgba(245, 242, 235, 0.14);
+  --color-text-primary: #f5f2eb;
+  --color-text-secondary: #b8bac8;
+  --color-text-inverse: #0c0e18;
 
   /* --- Feedback --- */
   --color-success: var(--color-green);
-  --color-danger: #b3492f;
+  --color-danger: #ff7661;
 
   /* --- Typography --- */
   --font-display: "Fraunces", "Georgia", serif;
@@ -51,8 +51,8 @@
   --radius-sm: 10px;
   --radius-md: 18px;
   --radius-lg: 28px;
-  --shadow-card: 0 4px 20px rgba(74, 55, 33, 0.08);
-  --shadow-card-hover: 0 14px 34px rgba(74, 55, 33, 0.14);
+  --shadow-card: 0 18px 45px rgba(0, 0, 0, 0.22);
+  --shadow-card-hover: 0 24px 60px rgba(0, 0, 0, 0.34);
 
   /* --- Motion --- */
   --transition-fast: 150ms ease;
