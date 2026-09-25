@@ -20,6 +20,29 @@ function initialsFor(name) {
     .slice(0, 2)
     .map((part) => part[0].toUpperCase())
     .join("");
+
+    // Add this hook above your About component
+function useScrollReveal() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            // Optional: unobserve after revealing so it only animates once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    const elements = document.querySelectorAll(".reveal-up");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+}
 }
 
 // Reusable style builder for Unsplash backgrounds with legibility overlays
