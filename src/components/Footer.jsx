@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { 
+  Github, 
+  Linkedin, 
+  Twitter, 
+  Mail, 
+  Instagram, 
+  Facebook, 
+  MessageCircle,
+  ArrowUpRight
+} from "lucide-react";
 import { getProfile } from "../services/api.js";
 import { labelForPlatform, FALLBACK_SOCIALS } from "../utils/social.js";
 import "./Footer.css";
@@ -7,9 +17,19 @@ import "./Footer.css";
 const SITE_LINKS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
+  { to: "/projects", label: "Work" }, // Matched navbar terminology
   { to: "/contact", label: "Contact" },
 ];
+
+const SOCIAL_ICONS = {
+  twitter: Twitter,
+  facebook: Facebook,
+  instagram: Instagram,
+  whatsapp: MessageCircle,
+  email: Mail,
+  github: Github,
+  linkedin: Linkedin,
+};
 
 // Reusable background style builder
 const bgStyle = (url, overlayOpacity = 0.95, isDark = true) => ({
@@ -30,7 +50,7 @@ function useScrollReveal(dependencies = []) {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px 50px 0px" } // triggers slightly earlier for footer
+      { threshold: 0.1, rootMargin: "0px 0px 50px 0px" } 
     );
 
     const timer = setTimeout(() => {
@@ -61,17 +81,35 @@ export default function Footer() {
   const year = new Date().getFullYear();
   const availabilityLabel =
     profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate";
+  
+  const firstName = profile?.name ? profile.name.split(" ")[0] : "Vincent";
+
+  const renderSocialLinks = (links) => {
+    return links.map((s) => {
+      const Icon = SOCIAL_ICONS[s.platform] || ArrowUpRight;
+      const href = s.resolved_url || s.href;
+      
+      return (
+        <li key={s.id || s.platform}>
+          <a href={href} target="_blank" rel="noreferrer" className="footer-social-link">
+            <Icon size={18} strokeWidth={1.5} className="footer-social-icon" />
+            <span>{labelForPlatform(s.platform)}</span>
+          </a>
+        </li>
+      );
+    });
+  };
 
   return (
     <footer 
       className="footer theme-dark"
-      style={bgStyle("https://images.unsplash.com/photo-MoQTcn9KLjQ?auto=format&fit=crop&q=80&w=1600", 0.92, true)}
+      style={bgStyle("https://images.unsplash.com/photo-MoQTcn9KLjQ?auto=format&fit=crop&q=80&w=1600", 0.94, true)}
     >
       <div className="container footer-grid">
         {/* Brand Column */}
         <div className="footer-brand footer-reveal-up">
-          <Link to="/" className="footer-logo">
-            {profile?.name ? profile.name.split(" ")[0] : "Vincent"}<span className="footer-logo-dot">.</span>
+          <Link to="/" className="footer-logo" onClick={() => window.scrollTo(0,0)}>
+            {firstName}<span className="brand-dot">.</span>
           </Link>
           <p className="footer-tagline">
             Product engineer crafting resilient, full-stack systems from database to screen.
@@ -84,11 +122,13 @@ export default function Footer() {
 
         {/* Site Links Column */}
         <div className="footer-column footer-reveal-up delay-100">
-          <h2 className="footer-heading">Site</h2>
+          <h2 className="footer-heading">Navigation</h2>
           <ul className="footer-nav">
             {SITE_LINKS.map((link) => (
               <li key={link.to}>
-                <Link to={link.to}>{link.label}</Link>
+                <Link to={link.to} onClick={() => window.scrollTo(0,0)} className="footer-nav-link">
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -96,23 +136,9 @@ export default function Footer() {
 
         {/* Socials Column */}
         <div className="footer-column footer-reveal-up delay-200">
-          <h2 className="footer-heading">Elsewhere</h2>
+          <h2 className="footer-heading">Connect</h2>
           <ul className="footer-socials">
-            {showFallback
-              ? FALLBACK_SOCIALS.map((s) => (
-                  <li key={s.platform}>
-                    <a href={s.href} target="_blank" rel="noreferrer">
-                      {labelForPlatform(s.platform)}
-                    </a>
-                  </li>
-                ))
-              : socials.map((s) => (
-                  <li key={s.id}>
-                    <a href={s.resolved_url} target="_blank" rel="noreferrer">
-                      {labelForPlatform(s.platform)}
-                    </a>
-                  </li>
-                ))}
+            {showFallback ? renderSocialLinks(FALLBACK_SOCIALS) : renderSocialLinks(socials)}
           </ul>
         </div>
       </div>
@@ -123,7 +149,7 @@ export default function Footer() {
           © {year} {profile?.name || "Vincent"}. All rights reserved.
         </p>
         <p className="footer-note footer-note-muted">
-          Built with React, React Native &amp; FastAPI.DRF
+          Built with React, React Native, FastAPI & DRF.
         </p>
       </div>
     </footer>
