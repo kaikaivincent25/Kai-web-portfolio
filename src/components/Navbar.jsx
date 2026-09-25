@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X, MessageSquare } from "lucide-react";
+import logo from "../assets/logo.png";
 import "./Navbar.css";
 
 // "Contact" is removed from this array so we can feature it as a distinct CTA button
@@ -55,7 +56,7 @@ export default function Navbar() {
       <div className="container navbar-inner">
         {/* Brand / Logo */}
         <NavLink to="/" className="navbar-brand" onClick={() => setIsOpen(false)}>
-          Vincent<span className="brand-dot">.</span>
+          <img src={logo} alt="Vincent home" />
         </NavLink>
 
         {/* Desktop Navigation */}

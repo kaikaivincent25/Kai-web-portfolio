@@ -39,12 +39,19 @@
 .navbar-brand {
   position: relative;
   z-index: 1001; /* Keeps logo above mobile panel */
-  font-size: 1.5rem;
-  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
   color: #ffffff;
   text-decoration: none;
-  letter-spacing: -0.02em;
   transition: opacity 0.2s ease;
+}
+
+.navbar-brand img {
+  display: block;
+  width: auto;
+  height: 2.25rem;
+  max-width: 9rem;
+  object-fit: contain;
 }
 
 .navbar-brand:hover {
