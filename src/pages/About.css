@@ -1,288 +1,305 @@
+/* About.css */
+
+/* 
+  Reset & Base Layout
+  Ensures sections span the full width while content remains centered.
+*/
 .about-page {
-  padding-block: var(--space-24) var(--space-16);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-section {
+  width: 100%;
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 
+  Theme Colors & Typography
+  Handles contrast over the light/dark image overlays.
+*/
+.theme-dark {
+  color: #f5f5f4; /* Light stone */
+}
+.theme-dark h1, 
+.theme-dark h2, 
+.theme-dark h3 {
+  color: #ffffff;
+}
+.theme-dark .eyebrow {
+  color: var(--color-accent, #10B981);
+}
+
+.theme-light {
+  color: #44403c; /* Dark stone */
+}
+.theme-light h1, 
+.theme-light h2, 
+.theme-light h3 {
+  color: #1c1917; /* Near black */
+}
+.theme-light .eyebrow {
+  color: var(--color-accent-dark, #059669);
 }
 
 .eyebrow {
-  display: inline-block;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.08em;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
   text-transform: uppercase;
-  color: var(--color-blue);
-  margin-bottom: var(--space-2);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
 }
 
-/* --- Header --- */
-.about-header {
+/* 
+  Hero Section 
+*/
+.about-hero {
+  padding: 8rem 1.5rem 6rem;
+}
+
+.about-hero-content {
   display: flex;
-  gap: var(--space-8);
+  flex-direction: column;
   align-items: flex-start;
-  margin-bottom: var(--space-12);
+  gap: 2rem;
 }
 
 .about-avatar {
   width: 120px;
   height: 120px;
-  border-radius: var(--radius-lg);
+  border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
-  border: 3px solid var(--color-white);
-  box-shadow: var(--shadow-card-hover);
-  transform: rotate(-2deg);
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .avatar-fallback {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #c8562f 0%, #e0895a 100%);
-  color: var(--color-text-inverse);
-  font-family: var(--font-display);
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-semibold);
-}
-
-.about-header h1 {
-  font-size: var(--fs-2xl);
-  margin-bottom: var(--space-4);
+  background: var(--color-accent, #10B981);
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .about-intro {
-  font-size: var(--fs-lg);
-  color: var(--color-text-secondary);
-  max-width: 65ch;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-top: 1rem;
+  opacity: 0.9;
 }
 
-/* --- Facts strip --- */
+@media (min-width: 768px) {
+  .about-hero-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+  .about-avatar {
+    width: 140px;
+    height: 140px;
+  }
+  .about-intro {
+    font-size: 1.35rem;
+  }
+}
+
+/* 
+  Philosophy & Facts Section 
+*/
 .about-facts {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
-  margin-bottom: var(--space-16);
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
 }
 
-.about-fact {
+@media (min-width: 768px) {
+  .about-facts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Glassmorphism cards to let the background peak through */
+.about-fact-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
   display: flex;
   align-items: flex-start;
-  gap: var(--space-3);
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-card);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  gap: 1rem;
+  transition: transform 0.2s ease;
 }
 
-.about-fact:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
+.about-fact-card:hover {
+  transform: translateY(-2px);
 }
 
 .about-fact-icon {
-  color: var(--color-blue);
+  color: var(--color-accent-dark, #059669);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0.15rem;
 }
 
 .about-fact-label {
   display: block;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #57534e;
+  margin-bottom: 0.25rem;
 }
 
 .about-fact-value {
   display: block;
-  font-size: var(--fs-sm);
-  color: var(--color-text-primary);
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
-/* --- Sections --- */
-.about-section {
-  margin-bottom: var(--space-16);
-  max-width: 70ch;
-}
-
-.about-section h2 {
-  font-size: var(--fs-xl);
-  margin-bottom: var(--space-4);
-}
-
-.about-section p {
-  color: var(--color-text-secondary);
-}
-
-/* --- Philosophy: styled as a warm highlighted card, not a plain paragraph --- */
-.about-philosophy {
+.philosophy-content {
   display: flex;
-  gap: var(--space-5);
-  align-items: flex-start;
-  max-width: none;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-card);
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
 }
 
 .about-philosophy-icon {
-  color: var(--color-green);
+  color: var(--color-accent-dark, #059669);
   flex-shrink: 0;
-  margin-top: var(--space-1);
+  margin-top: 0.25rem;
 }
 
-.about-philosophy p {
-  max-width: 65ch;
+@media (min-width: 768px) {
+  .philosophy-content {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
 }
 
-/* --- Skills --- */
+.philosophy-content p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+/* 
+  Skills & Toolbox Section 
+*/
 .about-skills-groups {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8);
-  max-width: none;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .about-skills-groups {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .about-skills-group h3 {
-  font-family: var(--font-body);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-3);
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.about-skills-group ul {
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: 0.75rem;
 }
 
-/* stack-item / stack-item-level / stack-item-name reused across Home + About */
 .stack-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: 999px;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  font-size: var(--fs-sm);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .stack-item-name {
-  font-weight: var(--fw-semibold);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .stack-item-level {
-  font-size: var(--fs-xs);
+  font-size: 0.75rem;
+  color: #78716c;
   text-transform: capitalize;
-  color: var(--color-text-secondary);
 }
 
-.stack-item-learning .stack-item-level {
-  color: var(--color-blue);
-}
-
-.stack-item-confident .stack-item-level {
-  color: var(--color-green);
-}
-
-/* --- Closing CTA --- */
-.about-cta {
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-12);
+/* 
+  CTA Section 
+*/
+.cta-container {
   text-align: center;
+  max-width: 600px;
 }
 
-.about-cta p {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-6);
+.cta-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-container p {
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
 }
 
 .about-cta-actions {
   display: flex;
-  justify-content: center;
-  gap: var(--space-4);
-}
-
-@media (max-width: 768px) {
-  .about-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .about-facts {
-    grid-template-columns: 1fr;
-  }
-
-  .about-philosophy {
-    flex-direction: column;
-  }
-
-  .about-skills-groups {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- Dark editorial treatment --- */
-.about-page {
-  padding-block: clamp(5rem, 9vw, 8rem) var(--space-16);
-}
-
-.about-header {
+  flex-direction: column;
   align-items: center;
-  padding-bottom: var(--space-12);
-  border-bottom: 1px solid var(--color-border);
+  justify-content: center;
+  gap: 1rem;
 }
 
-.about-avatar {
-  border-color: rgba(245, 242, 235, 0.28);
+@media (min-width: 480px) {
+  .about-cta-actions {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
 }
 
-.avatar-fallback {
-  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+/* Button overrides for dark section */
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.2s ease;
 }
 
-.about-fact,
-.about-philosophy {
-  background: rgba(245, 242, 235, 0.055);
-  backdrop-filter: blur(12px);
-}
-
-.about-fact:hover {
-  border-color: rgba(244, 162, 97, 0.45);
-}
-
-.about-section {
-  max-width: 76ch;
-}
-
-.about-philosophy {
-  max-width: none;
-  border-left: 2px solid var(--color-green);
-}
-
-.about-skills-group h3 {
-  color: var(--color-blue);
-}
-
-.about-section h2 {
-  color: var(--color-text-primary);
-}
-
-.about-cta {
-  margin-top: var(--space-8);
-}
-
-.about-cta p,
-.about-section p,
-.about-intro {
-  color: var(--color-text-secondary);
+.btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
 }
