@@ -195,7 +195,7 @@ export default function Contact() {
                       id="name"
                       name="name"
                       type="text"
-                      placeholder="Jane Doe"
+                      placeholder="Vincent Kaikai"
                       required
                       value={form.name}
                       onChange={handleChange}
@@ -208,7 +208,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="jane@example.com"
+                      placeholder="vkaikai44@gmail.com"
                       required
                       value={form.email}
                       onChange={handleChange}
@@ -224,7 +224,7 @@ export default function Contact() {
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="+254..."
+                      placeholder="+254/07..."
                       value={form.phone}
                       onChange={handleChange}
                     />
