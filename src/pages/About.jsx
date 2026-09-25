@@ -130,9 +130,8 @@ export default function About() {
         <div className="container">
           <div className="about-facts">
             {facts.map((fact, index) => (
-              {/* Added reveal-up and staggered delay classes */}
-              <div 
-                key={fact.label} 
+              <div
+                key={fact.label}
                 className={`about-fact-card reveal-up delay-${(index + 1) * 100}`}
               >
                 <fact.icon className="about-fact-icon" size={24} strokeWidth={1.5} aria-hidden="true" />
@@ -176,9 +175,8 @@ export default function About() {
             </div>
             <div className="about-skills-groups">
               {Object.entries(grouped).map(([category, items], index) => (
-                {/* Added reveal-up and staggered delays to the skill blocks */}
-                <div 
-                  key={category} 
+                <div
+                  key={category}
                   className={`about-skills-group reveal-up delay-${(index % 3 + 1) * 100}`}
                 >
                   <h3>{CATEGORY_LABELS[category] || category}</h3>
