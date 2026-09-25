@@ -175,7 +175,7 @@ export default function ProjectDetail() {
       {/* CTA / FOOTER: Dark curved ribbon */}
       <section 
         className="project-section project-cta theme-dark"
-        style={bgStyle("https://images.unsplash.com/photo-AlaGaRGKj8s?auto=format&fit=crop&q=80&w=1600", 0.85, true)}
+        style={bgStyle("https://images.stockcake.com/public/6/9/6/696d9385-95e7-4415-b3c7-3c90bf75b9a6_large/modern-developer-workspace-stockcake.jpg", 0.85, true)}
       >
         <div className="container cta-container reveal-up">
           <h2>Interested in the architecture?</h2>

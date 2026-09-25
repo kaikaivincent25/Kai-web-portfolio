@@ -166,7 +166,7 @@ export default function About() {
       {Object.keys(grouped).length > 0 && (
         <section 
           className="about-section about-toolbox theme-light"
-          style={bgStyle("https://images.unsplash.com/photo-vmk7e9roVlA?auto=format&fit=crop&q=80&w=1600", 0.95, false)}
+          style={bgStyle("https://wallpaperbat.com/img/88136119-dark-gradient-picture-download-free.jpg", 0.95, false)}
         >
           <div className="container">
             <div className="reveal-up">
@@ -198,7 +198,7 @@ export default function About() {
       {/* CTA / FOOTER SECTION */}
       <section 
         className="about-section about-cta theme-dark"
-        style={bgStyle("https://images.unsplash.com/photo-AlaGaRGKj8s?auto=format&fit=crop&q=80&w=1600", 0.8, true)}
+        style={bgStyle("https://static.vecteezy.com/system/resources/previews/001/227/763/original/abstract-minimal-flat-geometric-background-vector.jpg", 0.8, true)}
       >
         {/* Added reveal-up to the entire CTA block */}
         <div className="container cta-container reveal-up">
