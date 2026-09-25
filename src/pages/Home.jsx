@@ -160,7 +160,7 @@ export default function Home() {
       {/* STACK: Light minimal geometric */}
       <section 
         className="home-section stack-section theme-light"
-        style={bgStyle("https://images.unsplash.com/photo-z9jMuYsjzgw?auto=format&fit=crop&q=80&w=1600", 0.95, false)}
+        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.95, false)}
       >
         <div className="container">
           <div className="section-heading reveal-up">
@@ -198,7 +198,7 @@ export default function Home() {
       {/* CLOSING CTA: Dark curved ribbon pattern */}
       <section 
         className="home-section cta-band theme-dark"
-        style={bgStyle("https://images.unsplash.com/photo-AlaGaRGKj8s?auto=format&fit=crop&q=80&w=1600", 0.85, true)}
+        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.85, true)}
       >
         <div className="container cta-container reveal-up">
           <h2>Have a project in mind?</h2>

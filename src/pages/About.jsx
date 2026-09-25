@@ -99,7 +99,7 @@ export default function About() {
       {/* HERO SECTION */}
       <header 
         className="about-section about-hero theme-dark" 
-        style={bgStyle("https://images.unsplash.com/photo-o0HhGwX36v0?auto=format&fit=crop&q=80&w=1920", 0.75, true)}
+        style={bgStyle("https://wallpaperbat.com/img/88136119-dark-gradient-picture-download-free.jpg", 0.75, true)}
       >
         <div className="container">
           <div className="about-hero-content">
@@ -125,7 +125,7 @@ export default function About() {
       {/* PHILOSOPHY SECTION */}
       <section 
         className="about-section about-philosophy theme-light"
-        style={bgStyle("https://images.unsplash.com/photo-z9jMuYsjzgw?auto=format&fit=crop&q=80&w=1600", 0.9, false)}
+        style={bgStyle("https://wallpaperbat.com/img/88136128-dark-gradient.jpg", 0.9, false)}
       >
         <div className="container">
           <div className="about-facts">

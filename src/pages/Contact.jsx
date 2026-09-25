@@ -124,7 +124,7 @@ export default function Contact() {
       {/* HERO SECTION: Dark, tech-forward abstract lines */}
       <header 
         className="contact-hero theme-dark"
-        style={bgStyle("https://images.unsplash.com/photo-o0HhGwX36v0?auto=format&fit=crop&q=80&w=1920", 0.75, true)}
+        style={bgStyle("https://i.pinimg.com/originals/5c/29/de/5c29de6ca761da63fc01a4465c251314.jpg", 0.75, true)}
       >
         <div className="container reveal-up">
           <span className="eyebrow">Contact</span>
