@@ -20,16 +20,16 @@ function initialsFor(name) {
     .slice(0, 2)
     .map((part) => part[0].toUpperCase())
     .join("");
+}
 
-    // Add this hook above your About component
-function useScrollReveal() {
+// Extracted the hook properly so it sits outside your component logic
+function useScrollReveal(dependencies = []) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            // Optional: unobserve after revealing so it only animates once
             observer.unobserve(entry.target);
           }
         });
@@ -37,12 +37,17 @@ function useScrollReveal() {
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    const elements = document.querySelectorAll(".reveal-up");
-    elements.forEach((el) => observer.observe(el));
+    // Slight timeout ensures DOM is fully painted after data fetching
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll(".reveal-up");
+      elements.forEach((el) => observer.observe(el));
+    }, 100);
 
-    return () => observer.disconnect();
-  }, []);
-}
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, dependencies); // Re-runs when data (like skills) loads
 }
 
 // Reusable style builder for Unsplash backgrounds with legibility overlays
@@ -50,12 +55,15 @@ const bgStyle = (url, overlayOpacity = 0.85, isDark = true) => ({
   backgroundImage: `linear-gradient(rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity}), rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity})), url('${url}')`,
   backgroundSize: "cover",
   backgroundPosition: "center",
-  backgroundAttachment: "fixed", // Optional: adds a nice parallax feel
+  backgroundAttachment: "fixed", 
 });
 
 export default function About() {
   const [profile, setProfile] = useState(null);
   const [skills, setSkills] = useState([]);
+
+  // Initialize the scroll reveal observer and tell it to watch for data updates
+  useScrollReveal([skills, profile]);
 
   useEffect(() => {
     getProfile().then(setProfile).catch(() => setProfile(null));
@@ -68,7 +76,6 @@ export default function About() {
     return acc;
   }, {});
 
-  // Redesigned facts tailored to a product engineer (removed education/geography)
   const facts = [
     {
       icon: Layers,
@@ -89,7 +96,7 @@ export default function About() {
 
   return (
     <div className="about-page">
-      {/* HERO SECTION: Dark, tech-forward abstract lines */}
+      {/* HERO SECTION */}
       <header 
         className="about-section about-hero theme-dark" 
         style={bgStyle("https://images.unsplash.com/photo-o0HhGwX36v0?auto=format&fit=crop&q=80&w=1920", 0.75, true)}
@@ -115,15 +122,19 @@ export default function About() {
         </div>
       </header>
 
-      {/* PHILOSOPHY SECTION: Light, minimal geometric */}
+      {/* PHILOSOPHY SECTION */}
       <section 
         className="about-section about-philosophy theme-light"
         style={bgStyle("https://images.unsplash.com/photo-z9jMuYsjzgw?auto=format&fit=crop&q=80&w=1600", 0.9, false)}
       >
         <div className="container">
           <div className="about-facts">
-            {facts.map((fact) => (
-              <div key={fact.label} className="about-fact-card">
+            {facts.map((fact, index) => (
+              {/* Added reveal-up and staggered delay classes */}
+              <div 
+                key={fact.label} 
+                className={`about-fact-card reveal-up delay-${(index + 1) * 100}`}
+              >
                 <fact.icon className="about-fact-icon" size={24} strokeWidth={1.5} aria-hidden="true" />
                 <div>
                   <span className="about-fact-label">{fact.label}</span>
@@ -133,7 +144,8 @@ export default function About() {
             ))}
           </div>
 
-          <div className="philosophy-content">
+          {/* Added reveal-up here */}
+          <div className="philosophy-content reveal-up delay-200">
             <Sparkles className="about-philosophy-icon" size={28} strokeWidth={1.5} aria-hidden="true" />
             <div>
               <span className="eyebrow">Philosophy</span>
@@ -151,18 +163,24 @@ export default function About() {
         </div>
       </section>
 
-      {/* SKILLS SECTION: Light, soft neutral tones */}
+      {/* SKILLS SECTION */}
       {Object.keys(grouped).length > 0 && (
         <section 
           className="about-section about-toolbox theme-light"
           style={bgStyle("https://images.unsplash.com/photo-vmk7e9roVlA?auto=format&fit=crop&q=80&w=1600", 0.95, false)}
         >
           <div className="container">
-            <span className="eyebrow">Toolbox</span>
-            <h2>Skills & Technologies</h2>
+            <div className="reveal-up">
+              <span className="eyebrow">Toolbox</span>
+              <h2>Skills & Technologies</h2>
+            </div>
             <div className="about-skills-groups">
-              {Object.entries(grouped).map(([category, items]) => (
-                <div key={category} className="about-skills-group">
+              {Object.entries(grouped).map(([category, items], index) => (
+                {/* Added reveal-up and staggered delays to the skill blocks */}
+                <div 
+                  key={category} 
+                  className={`about-skills-group reveal-up delay-${(index % 3 + 1) * 100}`}
+                >
                   <h3>{CATEGORY_LABELS[category] || category}</h3>
                   <ul className="skills-list">
                     {items.map((skill) => (
@@ -179,12 +197,13 @@ export default function About() {
         </section>
       )}
 
-      {/* CTA / FOOTER SECTION: Dark minimal curved ribbon */}
+      {/* CTA / FOOTER SECTION */}
       <section 
         className="about-section about-cta theme-dark"
         style={bgStyle("https://images.unsplash.com/photo-AlaGaRGKj8s?auto=format&fit=crop&q=80&w=1600", 0.8, true)}
       >
-        <div className="container cta-container">
+        {/* Added reveal-up to the entire CTA block */}
+        <div className="container cta-container reveal-up">
           <h2>Ready to build something intentional?</h2>
           <p>Want to see this architecture in practice, or discuss a collaboration?</p>
           <div className="about-cta-actions">
