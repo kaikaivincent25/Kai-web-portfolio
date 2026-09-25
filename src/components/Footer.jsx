@@ -1,4 +1,3 @@
-// Footer.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfile } from "../services/api.js";
@@ -12,8 +11,44 @@ const SITE_LINKS = [
   { to: "/contact", label: "Contact" },
 ];
 
+// Reusable background style builder
+const bgStyle = (url, overlayOpacity = 0.95, isDark = true) => ({
+  backgroundImage: `linear-gradient(rgba(10, 10, 10, ${overlayOpacity}), rgba(10, 10, 10, ${overlayOpacity})), url('${url}')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+});
+
+// Reusable scroll animation hook
+function useScrollReveal(dependencies = []) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px 50px 0px" } // triggers slightly earlier for footer
+    );
+
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll(".footer-reveal-up");
+      elements.forEach((el) => observer.observe(el));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, dependencies);
+}
+
 export default function Footer() {
-  const [profile, setProfile] = useState(null); // null = still loading
+  const [profile, setProfile] = useState(null);
+
+  useScrollReveal([profile]);
 
   useEffect(() => {
     getProfile()
@@ -28,26 +63,27 @@ export default function Footer() {
     profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate";
 
   return (
-    <footer className="footer">
-      <div className="footer-topline" />
-
-      <div className="container footer-top">
-        <div className="footer-brand">
-          <span className="footer-logo">
-            Vincent<span className="footer-logo-dot">.</span>
-          </span>
+    <footer 
+      className="footer theme-dark"
+      style={bgStyle("https://images.unsplash.com/photo-MoQTcn9KLjQ?auto=format&fit=crop&q=80&w=1600", 0.92, true)}
+    >
+      <div className="container footer-grid">
+        {/* Brand Column */}
+        <div className="footer-brand footer-reveal-up">
+          <Link to="/" className="footer-logo">
+            {profile?.name ? profile.name.split(" ")[0] : "Vincent"}<span className="footer-logo-dot">.</span>
+          </Link>
           <p className="footer-tagline">
-            Full-stack developer building with React, React Native, and
-            Django REST Framework — learning in public, one project at a
-            time.
+            Product engineer crafting resilient, full-stack systems from database to screen.
           </p>
-          <span className="footer-status">
-            <span className="footer-status-dot" />
+          <div className="footer-status">
+            <span className={`footer-status-dot ${profile?.availability_status === "busy" ? "busy" : "open"}`} aria-hidden="true" />
             {availabilityLabel}
-          </span>
+          </div>
         </div>
 
-        <div className="footer-column">
+        {/* Site Links Column */}
+        <div className="footer-column footer-reveal-up delay-100">
           <h2 className="footer-heading">Site</h2>
           <ul className="footer-nav">
             {SITE_LINKS.map((link) => (
@@ -58,7 +94,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="footer-column">
+        {/* Socials Column */}
+        <div className="footer-column footer-reveal-up delay-200">
           <h2 className="footer-heading">Elsewhere</h2>
           <ul className="footer-socials">
             {showFallback
@@ -80,9 +117,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container footer-bottom">
-        <p className="footer-note">© {year} Vincent Kaikai. All rights reserved.</p>
-        <p className="footer-note footer-note-muted">Built with React, React Native &amp; Django REST Framework</p>
+      {/* Bottom Legal / Tech Note */}
+      <div className="container footer-bottom footer-reveal-up delay-300">
+        <p className="footer-note">
+          © {year} {profile?.name || "Vincent"}. All rights reserved.
+        </p>
+        <p className="footer-note footer-note-muted">
+          Built with React, React Native &amp; FastAPI.DRF
+        </p>
       </div>
     </footer>
   );
