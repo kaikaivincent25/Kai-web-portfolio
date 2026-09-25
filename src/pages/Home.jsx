@@ -89,7 +89,7 @@ export default function Home() {
       {/* HERO SECTION: Dark concentric circles for a striking first impression */}
       <section 
         className="home-section hero theme-dark"
-        style={bgStyle("https://images.unsplash.com/photo-eg-fYTwjFXY?auto=format&fit=crop&q=80&w=1920", 0.8, true)}
+        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.8, true)}
       >
         <div className="container hero-grid">
           <div className="hero-copy reveal-up">
