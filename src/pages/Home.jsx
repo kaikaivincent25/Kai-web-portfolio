@@ -1,9 +1,32 @@
+// Home.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfile, getProjects, getSkills } from "../services/api.js";
 import IntroCard from "../components/IntroCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import "./Home.css";
+
+const CATEGORY_LABELS = {
+  frontend: "Frontend",
+  backend: "Backend",
+  mobile: "Mobile",
+  ai_tools: "AI Tools",
+};
+
+const CATEGORY_ORDER = ["frontend", "backend", "mobile", "ai_tools"];
+
+function groupSkillsByCategory(skills) {
+  const groups = {};
+  skills.forEach((skill) => {
+    if (!groups[skill.category]) groups[skill.category] = [];
+    groups[skill.category].push(skill);
+  });
+  return CATEGORY_ORDER.filter((cat) => groups[cat]?.length).map((cat) => ({
+    category: cat,
+    label: CATEGORY_LABELS[cat] || cat,
+    skills: groups[cat],
+  }));
+}
 
 export default function Home() {
   const [profile, setProfile] = useState(null);
@@ -20,6 +43,10 @@ export default function Home() {
       .finally(() => setLoadingProjects(false));
   }, []);
 
+  const skillGroups = groupSkillsByCategory(skills);
+  const availabilityLabel =
+    profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate";
+
   return (
     <>
       {/* --- Hero --- */}
@@ -28,9 +55,7 @@ export default function Home() {
           <div className="hero-copy">
             <span className="hero-eyebrow">
               <span className="hero-eyebrow-dot" />
-              {profile?.availability_status === "busy"
-                ? "Currently busy"
-                : "Open to collaborate"}
+              {availabilityLabel}
             </span>
             <h1 className="hero-title">
               {profile?.name || "Vincent"} — building products with
@@ -49,13 +74,13 @@ export default function Home() {
               </Link>
             </div>
           </div>
+
           <div className="hero-visual">
             <span className="hero-visual-label">01 / Profile signal</span>
-            <IntroCard
-              availability={
-                profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate"
-              }
-            />
+            <div className="hero-photo-card">
+              <div className="hero-photo-card-scrim" />
+              <IntroCard availability={availabilityLabel} />
+            </div>
           </div>
         </div>
       </section>
@@ -95,17 +120,25 @@ export default function Home() {
             <h2>Currently building with</h2>
           </div>
         </div>
-        {skills.length === 0 ? (
+
+        {skillGroups.length === 0 ? (
           <p className="section-note">Stack details coming soon.</p>
         ) : (
-          <ul className="stack-list">
-            {skills.map((skill) => (
-              <li key={skill.id} className={`stack-item stack-item-${skill.proficiency}`}>
-                <span className="stack-item-name">{skill.name}</span>
-                <span className="stack-item-level">{skill.proficiency.replace("_", " ")}</span>
-              </li>
+          <div className="stack-columns">
+            {skillGroups.map((group) => (
+              <div className="stack-column" key={group.category}>
+                <h3 className="stack-column-label">{group.label}</h3>
+                <ul className="stack-list">
+                  {group.skills.map((skill) => (
+                    <li key={skill.id} className={`stack-item stack-item-${skill.proficiency}`}>
+                      <span className="stack-item-name">{skill.name}</span>
+                      <span className="stack-item-level">{skill.proficiency.replace("_", " ")}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </section>
 
