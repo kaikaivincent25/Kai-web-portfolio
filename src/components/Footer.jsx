@@ -1,3 +1,4 @@
+// Footer.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfile } from "../services/api.js";
@@ -12,19 +13,24 @@ const SITE_LINKS = [
 ];
 
 export default function Footer() {
-  const [socials, setSocials] = useState(null); // null = still loading
+  const [profile, setProfile] = useState(null); // null = still loading
 
   useEffect(() => {
     getProfile()
-      .then((profile) => setSocials(profile?.social_links || []))
-      .catch(() => setSocials([]));
+      .then(setProfile)
+      .catch(() => setProfile(null));
   }, []);
 
+  const socials = profile?.social_links;
   const showFallback = !socials || socials.length === 0;
   const year = new Date().getFullYear();
+  const availabilityLabel =
+    profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate";
 
   return (
     <footer className="footer">
+      <div className="footer-topline" />
+
       <div className="container footer-top">
         <div className="footer-brand">
           <span className="footer-logo">
@@ -35,6 +41,10 @@ export default function Footer() {
             Django REST Framework — learning in public, one project at a
             time.
           </p>
+          <span className="footer-status">
+            <span className="footer-status-dot" />
+            {availabilityLabel}
+          </span>
         </div>
 
         <div className="footer-column">
@@ -72,6 +82,7 @@ export default function Footer() {
 
       <div className="container footer-bottom">
         <p className="footer-note">© {year} Vincent Kaikai. All rights reserved.</p>
+        <p className="footer-note footer-note-muted">Built with React, React Native &amp; Django REST Framework</p>
       </div>
     </footer>
   );
