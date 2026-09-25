@@ -89,7 +89,7 @@ export default function Home() {
       {/* HERO SECTION: Dark concentric circles for a striking first impression */}
       <section 
         className="home-section hero theme-dark"
-        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.8, true)}
+        style={bgStyle("https://images.stockcake.com/public/7/0/2/702c05e2-44e6-4b5e-a593-c482b13f1452_large/productive-developer-workspace-stockcake.jpg", 0.8, true)}
       >
         <div className="container hero-grid">
           <div className="hero-copy reveal-up">
@@ -126,7 +126,7 @@ export default function Home() {
       {/* FEATURED WORK: Light, soft geometric lighting */}
       <section 
         className="home-section theme-light"
-        style={bgStyle("https://images.unsplash.com/photo-RV1wrv498Uo?auto=format&fit=crop&q=80&w=1600", 0.95, false)}
+        style={bgStyle("https://i.pinimg.com/originals/5c/29/de/5c29de6ca761da63fc01a4465c251314.jpg", 0.95, false)}
       >
         <div className="container">
           <div className="section-heading reveal-up">
