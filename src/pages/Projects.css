@@ -82,3 +82,41 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Dark editorial treatment --- */
+.projects-page {
+  padding-block: clamp(5rem, 9vw, 8rem) var(--space-16);
+}
+
+.projects-header {
+  max-width: 68ch;
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.projects-header h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  letter-spacing: -0.05em;
+  color: var(--color-text-primary);
+}
+
+.stack-filter {
+  margin-block: var(--space-8) var(--space-12);
+}
+
+.chip {
+  background: rgba(245, 242, 235, 0.055);
+  color: var(--color-text-secondary);
+}
+
+.chip-active {
+  background: var(--color-blue);
+  color: var(--color-text-inverse);
+}
+
+.empty-state {
+  background: rgba(245, 242, 235, 0.055);
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+}

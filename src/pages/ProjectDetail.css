@@ -145,3 +145,64 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Dark editorial treatment --- */
+.project-detail {
+  padding-block: clamp(4rem, 8vw, 7rem) var(--space-24);
+}
+
+.back-link {
+  color: var(--color-blue);
+  letter-spacing: 0.02em;
+}
+
+.project-detail-header {
+  max-width: 78ch;
+}
+
+.project-detail-header h1 {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  letter-spacing: -0.055em;
+  color: var(--color-text-primary);
+}
+
+.project-detail-tags li {
+  color: var(--color-blue);
+  background: rgba(244, 162, 97, 0.12);
+  border: 1px solid rgba(244, 162, 97, 0.22);
+}
+
+.project-detail-cover {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.project-detail-cover img {
+  max-height: 620px;
+  object-fit: cover;
+}
+
+.project-detail-description {
+  font-size: var(--fs-lg);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.project-detail-gallery figure {
+  background: rgba(245, 242, 235, 0.055);
+  border: 1px solid var(--color-border);
+}
+
+.project-detail-gallery figcaption {
+  background: transparent;
+}
+
+.project-detail-cta {
+  padding-block: var(--space-12);
+}
+
+.project-detail-cta p {
+  color: var(--color-text-secondary);
+}

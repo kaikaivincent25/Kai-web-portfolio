@@ -10,7 +10,7 @@ export default function ProjectCard({ project }) {
         {cover_image ? (
           <img src={cover_image} alt={title} />
         ) : (
-          <div className="project-card-media-fallback" aria-hidden="true">
+          <div className="project-card-media-fallback project-card-media-placeholder" aria-hidden="true">
             {title?.[0] || "?"}
           </div>
         )}

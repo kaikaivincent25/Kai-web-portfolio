@@ -50,6 +50,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
+            <span className="hero-visual-label">01 / Profile signal</span>
             <IntroCard
               availability={
                 profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate"
@@ -62,7 +63,10 @@ export default function Home() {
       {/* --- Featured projects --- */}
       <section className="container section">
         <div className="section-heading">
-          <h2>Featured work</h2>
+          <div>
+            <span className="section-kicker">02 / Selected work</span>
+            <h2>Featured work</h2>
+          </div>
           <Link to="/projects" className="section-heading-link">
             See all projects →
           </Link>
@@ -86,7 +90,10 @@ export default function Home() {
       {/* --- Stack & honesty strip --- */}
       <section className="container section stack-section">
         <div className="section-heading">
-          <h2>Currently building with</h2>
+          <div>
+            <span className="section-kicker">03 / The toolkit</span>
+            <h2>Currently building with</h2>
+          </div>
         </div>
         {skills.length === 0 ? (
           <p className="section-note">Stack details coming soon.</p>

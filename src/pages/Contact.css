@@ -217,3 +217,52 @@ select.field-input {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Dark editorial treatment --- */
+.contact-page {
+  padding-block: clamp(5rem, 9vw, 8rem) var(--space-16);
+}
+
+.contact-header {
+  max-width: 72ch;
+}
+
+.contact-header h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  letter-spacing: -0.05em;
+  color: var(--color-text-primary);
+}
+
+.contact-form,
+.contact-success {
+  background: rgba(16, 19, 33, 0.72);
+  backdrop-filter: blur(16px);
+  border-color: var(--color-border);
+}
+
+.intent-chip {
+  background: rgba(245, 242, 235, 0.045);
+}
+
+.intent-chip-active {
+  background: var(--color-blue);
+  color: var(--color-text-inverse);
+}
+
+.contact-avatar {
+  border-color: rgba(245, 242, 235, 0.28);
+}
+
+.availability-card {
+  background: rgba(105, 199, 174, 0.1);
+  border: 1px solid rgba(105, 199, 174, 0.24);
+}
+
+.contact-socials h2,
+.contact-socials a {
+  color: var(--color-text-primary);
+}
+
+.contact-socials a:hover {
+  background: rgba(244, 162, 97, 0.08);
+}

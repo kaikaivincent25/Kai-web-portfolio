@@ -230,3 +230,59 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Dark editorial treatment --- */
+.about-page {
+  padding-block: clamp(5rem, 9vw, 8rem) var(--space-16);
+}
+
+.about-header {
+  align-items: center;
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-avatar {
+  border-color: rgba(245, 242, 235, 0.28);
+}
+
+.avatar-fallback {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+}
+
+.about-fact,
+.about-philosophy {
+  background: rgba(245, 242, 235, 0.055);
+  backdrop-filter: blur(12px);
+}
+
+.about-fact:hover {
+  border-color: rgba(244, 162, 97, 0.45);
+}
+
+.about-section {
+  max-width: 76ch;
+}
+
+.about-philosophy {
+  max-width: none;
+  border-left: 2px solid var(--color-green);
+}
+
+.about-skills-group h3 {
+  color: var(--color-blue);
+}
+
+.about-section h2 {
+  color: var(--color-text-primary);
+}
+
+.about-cta {
+  margin-top: var(--space-8);
+}
+
+.about-cta p,
+.about-section p,
+.about-intro {
+  color: var(--color-text-secondary);
+}
