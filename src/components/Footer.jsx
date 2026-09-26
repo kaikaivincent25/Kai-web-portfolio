@@ -103,7 +103,7 @@ export default function Footer() {
   return (
     <footer 
       className="footer theme-dark"
-      style={bgStyle("https://wallpapercave.com/wp/wp5315391.jpg", 0.94, true)}
+      style={bgStyle("https://images.stockcake.com/public/b/0/7/b07559cb-e04e-46b4-844c-6de129bbe306_large/coding-workspace-setup-stockcake.jpg", 0.94, true)}
     >
       <div className="container footer-grid">
         {/* Brand Column */}
