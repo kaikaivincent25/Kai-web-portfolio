@@ -138,7 +138,7 @@ export default function Contact() {
       {/* BODY SECTION: Light, soft neutral geometric */}
       <section 
         className="contact-body theme-light"
-        style={bgStyle("https://images.unsplash.com/photo-vmk7e9roVlA?auto=format&fit=crop&q=80&w=1600", 0.95, false)}
+        style={bgStyle("https://wallpapercave.com/wp/wp6475846.jpg", 0.95, false)}
       >
         <div className="container contact-grid">
           

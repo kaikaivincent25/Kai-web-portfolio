@@ -63,7 +63,7 @@ export default function ProjectDetail() {
     return (
       <section 
         className="project-state-page theme-dark"
-        style={bgStyle("https://images.unsplash.com/photo-MoQTcn9KLjQ?auto=format&fit=crop&q=80&w=1600", 0.9, true)}
+        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.9, true)}
       >
         <div className="container empty-state reveal-up">
           {status === "loading" && <p>Loading project details…</p>}
@@ -87,7 +87,7 @@ export default function ProjectDetail() {
       {/* HERO SECTION: Dark swirling purple */}
       <header 
         className="project-section project-hero theme-dark"
-        style={bgStyle("https://images.unsplash.com/photo-ffTJoV2Nh4c?auto=format&fit=crop&q=80&w=1920", 0.8, true)}
+        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.8, true)}
       >
         <div className="container">
           <Link to="/projects" className="back-link reveal-up">
@@ -136,7 +136,7 @@ export default function ProjectDetail() {
       {/* BODY / DESCRIPTION: Light, minimal geometric */}
       <section 
         className="project-section project-body theme-light"
-        style={bgStyle("https://images.unsplash.com/photo-z9jMuYsjzgw?auto=format&fit=crop&q=80&w=1600", 0.95, false)}
+        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.95, false)}
       >
         <div className="container project-description-container reveal-up">
           <span className="eyebrow">Overview</span>
@@ -151,7 +151,7 @@ export default function ProjectDetail() {
       {gallery_images.length > 0 && (
         <section 
           className="project-section project-gallery-section theme-light"
-          style={bgStyle("https://images.unsplash.com/photo-RV1wrv498Uo?auto=format&fit=crop&q=80&w=1600", 0.95, false)}
+          style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.95, false)}
         >
           <div className="container">
             <div className="reveal-up">
@@ -175,7 +175,7 @@ export default function ProjectDetail() {
       {/* CTA / FOOTER: Dark curved ribbon */}
       <section 
         className="project-section project-cta theme-dark"
-        style={bgStyle("https://images.stockcake.com/public/6/9/6/696d9385-95e7-4415-b3c7-3c90bf75b9a6_large/modern-developer-workspace-stockcake.jpg", 0.85, true)}
+        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.85, true)}
       >
         <div className="container cta-container reveal-up">
           <h2>Interested in the architecture?</h2>

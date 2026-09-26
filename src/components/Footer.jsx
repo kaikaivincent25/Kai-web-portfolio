@@ -103,7 +103,7 @@ export default function Footer() {
   return (
     <footer 
       className="footer theme-dark"
-      style={bgStyle("https://images.unsplash.com/photo-MoQTcn9KLjQ?auto=format&fit=crop&q=80&w=1600", 0.94, true)}
+      style={bgStyle("https://wallpapercave.com/wp/wp5315391.jpg", 0.94, true)}
     >
       <div className="container footer-grid">
         {/* Brand Column */}
