@@ -86,6 +86,18 @@
 /* --- Dark editorial treatment --- */
 .projects-page {
   padding-block: clamp(5rem, 9vw, 8rem) var(--space-16);
+  position: relative;
+  isolation: isolate;
+}
+
+.projects-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(12, 14, 24, 0.76), rgba(12, 14, 24, 0.9)),
+    url("https://images.stockcake.com/public/6/9/6/696d9385-95e7-4415-b3c7-3c90bf75b9a6_large/modern-developer-workspace-stockcake.jpg") center / cover no-repeat;
 }
 
 .projects-header {
