@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { getProfile } from "../services/api.js";
 import { labelForPlatform, FALLBACK_SOCIALS } from "../utils/social.js";
+import logo from "../assets/logo.png";
 import "./Footer.css";
 
 const SITE_LINKS = [
@@ -109,7 +110,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="footer-brand footer-reveal-up">
           <Link to="/" className="footer-logo" onClick={() => window.scrollTo(0,0)}>
-            {firstName}<span className="brand-dot">.</span>
+            <img src={logo} alt={firstName} />
           </Link>
           <p className="footer-tagline">
             Product engineer crafting resilient, full-stack systems from database to screen.

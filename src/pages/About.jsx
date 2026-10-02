@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Code2, Layers, Database, Sparkles } from "lucide-react";
 import { getProfile, getSkills } from "../services/api.js";
+import portrait from "../assets/dp.png";
 import "./About.css";
 
 const CATEGORY_LABELS = {
@@ -103,13 +104,11 @@ export default function About() {
       >
         <div className="container">
           <div className="about-hero-content">
-            {profile?.avatar ? (
-              <img className="about-avatar" src={profile.avatar} alt={profile.name} />
-            ) : (
-              <div className="about-avatar avatar-fallback" aria-hidden="true">
-                {initialsFor(profile?.name)}
-              </div>
-            )}
+            <img
+              className="about-avatar"
+              src={profile?.avatar || portrait}
+              alt={profile?.name || "Vincent"}
+            />
             <div className="about-hero-text">
               <span className="eyebrow">About</span>
               <h1>Hi, I'm {profile?.name ? profile.name.split(" ")[0] : "Vincent"}</h1>

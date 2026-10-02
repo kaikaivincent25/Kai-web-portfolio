@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { getProfile, getProjects, getSkills } from "../services/api.js";
 import IntroCard from "../components/IntroCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
+import portrait from "../assets/dp.png";
 import "./Home.css";
 
 const CATEGORY_LABELS = {
@@ -116,6 +117,7 @@ export default function Home() {
           </div>
 
           <div className="hero-visual reveal-up delay-200">
+            <img className="hero-portrait" src={portrait} alt="Vincent at his desk" />
             <div className="hero-photo-card">
               <IntroCard availability={availabilityLabel} />
             </div>

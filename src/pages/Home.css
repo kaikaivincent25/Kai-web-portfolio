@@ -92,6 +92,38 @@
   display: flex;
   justify-content: center;
   position: relative;
+  min-height: 420px;
+  align-items: center;
+}
+
+.hero-portrait {
+  display: block;
+  width: min(100%, 460px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 38%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.hero-photo-card {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(8%, 12%);
+}
+
+@media (max-width: 640px) {
+  .hero-visual {
+    min-height: 0;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-photo-card {
+    right: 0.5rem;
+    transform: translateY(12%);
+  }
 }
 
 /* SECTION HEADINGS */

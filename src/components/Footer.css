@@ -45,6 +45,13 @@
   opacity: 0.8;
 }
 
+.footer-logo img {
+  display: block;
+  width: auto;
+  height: 48px;
+  object-fit: contain;
+}
+
 .brand-dot {
   color: var(--color-accent, #10B981);
 }
