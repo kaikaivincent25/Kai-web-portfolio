@@ -69,14 +69,6 @@ function useScrollReveal(dependencies = []) {
   }, dependencies);
 }
 
-// Reusable style builder for Unsplash backgrounds
-const bgStyle = (url, overlayOpacity = 0.85, isDark = true) => ({
-  backgroundImage: `linear-gradient(rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity}), rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity})), url('${url}')`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundAttachment: "fixed",
-});
-
 export default function Contact() {
   const [profile, setProfile] = useState(null);
   const [form, setForm] = useState(INITIAL_FORM);
@@ -121,11 +113,7 @@ export default function Contact() {
 
   return (
     <div className="contact-page">
-      {/* HERO SECTION: Dark, tech-forward abstract lines */}
-      <header 
-        className="contact-hero theme-dark"
-        style={bgStyle("https://i.pinimg.com/originals/5c/29/de/5c29de6ca761da63fc01a4465c251314.jpg", 0.75, true)}
-      >
+      <header className="contact-hero theme-dark">
         <div className="container reveal-up">
           <span className="eyebrow">Contact</span>
           <h1>Let's build something intentional.</h1>
@@ -135,11 +123,7 @@ export default function Contact() {
         </div>
       </header>
 
-      {/* BODY SECTION: Light, soft neutral geometric */}
-      <section 
-        className="contact-body theme-light"
-        style={bgStyle("https://wallpapercave.com/wp/wp6475846.jpg", 0.95, false)}
-      >
+      <section className="contact-body theme-light">
         <div className="container contact-grid">
           
           {/* Main Form Area */}
@@ -149,8 +133,8 @@ export default function Contact() {
                 <div className="success-icon-wrapper">
                   <CheckCircle2 size={48} strokeWidth={1.5} />
                 </div>
-                <h2>Message Sent</h2>
-                <p>Thanks for reaching out. I usually reply within a day or two. Talk soon!</p>
+                <h2>Message received</h2>
+                <p>Thanks for reaching out. Your message has been saved, and I’ll follow up as soon as I can.</p>
                 <button type="button" className="btn btn-ghost" onClick={() => setStatus("idle")}>
                   Send another message
                 </button>
@@ -261,7 +245,7 @@ export default function Contact() {
                 <div className="form-actions">
                   <button type="submit" className="btn btn-primary btn-large" disabled={status === "submitting"}>
                     {status === "submitting" ? "Sending..." : "Send Message"}
-                    {!status === "submitting" && <Send size={18} />}
+                    {status !== "submitting" && <Send size={18} />}
                   </button>
 
                   {status === "error" && (

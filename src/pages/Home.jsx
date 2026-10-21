@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { getProfile, getProjects, getSkills } from "../services/api.js";
@@ -56,14 +56,6 @@ function useScrollReveal(dependencies = []) {
   }, dependencies);
 }
 
-// Reusable background style builder
-const bgStyle = (url, overlayOpacity = 0.85, isDark = true) => ({
-  backgroundImage: `linear-gradient(rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity}), rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity})), url('${url}')`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundAttachment: "fixed",
-});
-
 export default function Home() {
   const [profile, setProfile] = useState(null);
   const [projects, setProjects] = useState([]);
@@ -88,10 +80,7 @@ export default function Home() {
   return (
     <div className="home-page">
       {/* HERO SECTION: Dark concentric circles for a striking first impression */}
-      <section 
-        className="home-section hero theme-dark"
-        style={bgStyle("https://images.stockcake.com/public/7/0/2/702c05e2-44e6-4b5e-a593-c482b13f1452_large/productive-developer-workspace-stockcake.jpg", 0.8, true)}
-      >
+      <section className="home-section hero theme-dark">
         <div className="container hero-grid">
           <div className="hero-copy reveal-up">
             <span className="hero-eyebrow">
@@ -126,10 +115,7 @@ export default function Home() {
       </section>
 
       {/* FEATURED WORK: Light, soft geometric lighting */}
-      <section 
-        className="home-section theme-light"
-        style={bgStyle("https://images.stockcake.com/public/7/0/2/702c05e2-44e6-4b5e-a593-c482b13f1452_large/productive-developer-workspace-stockcake.jpg", 0.95, false)}
-      >
+      <section className="home-section theme-light">
         <div className="container">
           <div className="section-heading reveal-up">
             <div>
@@ -160,10 +146,7 @@ export default function Home() {
       </section>
 
       {/* STACK: Light minimal geometric */}
-      <section 
-        className="home-section stack-section theme-light"
-        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.95, false)}
-      >
+      <section className="home-section stack-section theme-light">
         <div className="container">
           <div className="section-heading reveal-up">
             <div>
@@ -198,10 +181,7 @@ export default function Home() {
       </section>
 
       {/* CLOSING CTA: Dark curved ribbon pattern */}
-      <section 
-        className="home-section cta-band theme-dark"
-        style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.85, true)}
-      >
+      <section className="home-section cta-band theme-dark">
         <div className="container cta-container reveal-up">
           <h2>Have a project in mind?</h2>
           <p>Whether it's a collaboration, a role, or a complex system to build — let's connect.</p>

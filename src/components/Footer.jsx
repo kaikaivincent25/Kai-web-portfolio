@@ -32,13 +32,6 @@ const SOCIAL_ICONS = {
   linkedin: Linkedin,
 };
 
-// Reusable background style builder
-const bgStyle = (url, overlayOpacity = 0.95, isDark = true) => ({
-  backgroundImage: `linear-gradient(rgba(10, 10, 10, ${overlayOpacity}), rgba(10, 10, 10, ${overlayOpacity})), url('${url}')`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-});
-
 // Reusable scroll animation hook
 function useScrollReveal(dependencies = []) {
   useEffect(() => {
@@ -102,10 +95,7 @@ export default function Footer() {
   };
 
   return (
-    <footer 
-      className="footer theme-dark"
-      style={bgStyle("https://images.stockcake.com/public/b/0/7/b07559cb-e04e-46b4-844c-6de129bbe306_large/coding-workspace-setup-stockcake.jpg", 0.94, true)}
-    >
+    <footer className="footer theme-light">
       <div className="container footer-grid">
         {/* Brand Column */}
         <div className="footer-brand footer-reveal-up">

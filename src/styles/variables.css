@@ -1,23 +1,23 @@
 :root {
-  /* --- Brand colors: nocturnal ink with warm signal accents --- */
-  --color-blue: #f4a261;
-  --color-blue-dark: #e88948;
-  --color-green: #69c7ae;
-  --color-navy: #101321;
-  --color-navy-soft: #171b2e;
-  --color-ink-soft: #202640;
+  /* Calm blue palette with clear contrast for a light portfolio. */
+  --color-blue: #426f94;
+  --color-blue-dark: #315b7d;
+  --color-green: #378a72;
+  --color-navy: #18354e;
+  --color-navy-soft: #244963;
+  --color-ink-soft: #31536f;
 
   /* --- Neutrals --- */
-  --color-white: #f5f2eb;
-  --color-bg: #0c0e18;
-  --color-border: rgba(245, 242, 235, 0.14);
-  --color-text-primary: #f5f2eb;
-  --color-text-secondary: #b8bac8;
-  --color-text-inverse: #0c0e18;
+  --color-white: #ffffff;
+  --color-bg: #f6f9fc;
+  --color-border: #dce6ee;
+  --color-text-primary: #18354e;
+  --color-text-secondary: #526a7d;
+  --color-text-inverse: #ffffff;
 
   /* --- Feedback --- */
   --color-success: var(--color-green);
-  --color-danger: #ff7661;
+  --color-danger: #b54747;
 
   /* --- Typography --- */
   --font-display: "Fraunces", "Georgia", serif;
@@ -52,8 +52,8 @@
   --radius-sm: 10px;
   --radius-md: 18px;
   --radius-lg: 28px;
-  --shadow-card: 0 18px 45px rgba(0, 0, 0, 0.22);
-  --shadow-card-hover: 0 24px 60px rgba(0, 0, 0, 0.34);
+  --shadow-card: 0 18px 45px rgba(24, 53, 78, 0.09);
+  --shadow-card-hover: 0 24px 60px rgba(24, 53, 78, 0.15);
 
   /* --- Motion --- */
   --transition-fast: 150ms ease;
@@ -65,21 +65,21 @@
 
   /* Compatibility aliases for the legacy base stylesheet. */
   --sand: var(--color-bg);
-  --sand-deep: rgba(245, 242, 235, 0.07);
+  --sand-deep: #edf3f8;
   --sand-line: var(--color-border);
-  --card: rgba(16, 19, 33, 0.76);
+  --card: #ffffff;
   --ink: var(--color-navy);
   --ink-soft: var(--color-ink-soft);
   --ink-line: var(--color-border);
   --clay: var(--color-blue);
   --clay-deep: var(--color-blue-dark);
-  --clay-tint: rgba(244, 162, 97, 0.12);
+  --clay-tint: #fbeeee;
   --gold: #f4c95d;
   --teal-dot: var(--color-green);
   --text-strong: var(--color-text-primary);
   --text-body: var(--color-text-secondary);
   --text-muted: var(--color-text-secondary);
-  --text-faint: rgba(184, 186, 200, 0.72);
+  --text-faint: #71879a;
   --text-on-dark: var(--color-text-primary);
   --text-on-dark-muted: var(--color-text-secondary);
   --success: var(--color-success);

@@ -1,214 +1,25 @@
-/* Navbar.css */
-
-/* 
-  Base Navbar
-  Fixed to the top, sits over the dark Hero sections.
-*/
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 1.5rem 0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  color: #ffffff; /* Defaults to white to contrast against dark hero images */
-}
-
-/* 
-  Scrolled State
-  Adds a dark glassmorphic background so text remains readable 
-  when scrolling over lighter sections of the page.
-*/
-.navbar-scrolled {
-  padding: 1rem 0;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Brand */
-.navbar-brand {
-  position: relative;
-  z-index: 1001; /* Keeps logo above mobile panel */
-  display: inline-flex;
-  align-items: center;
-  color: #ffffff;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.navbar-brand img {
-  display: block;
-  width: auto;
-  height: 3.25rem;
-  max-width: 13rem;
-  object-fit: contain;
-}
-
-.navbar-brand:hover {
-  opacity: 0.8;
-}
-
-.brand-dot {
-  color: var(--color-accent, #10B981);
-}
-
-/* Desktop Navigation */
-.navbar-nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: #ffffff;
-}
-
-.nav-link.active {
-  color: #ffffff;
-}
-
-/* Active indicator dot underneath the link */
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: var(--color-accent, #10B981);
-}
-
-/* Actions */
-.navbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-  z-index: 1001; /* Keeps toggle above mobile panel */
-}
-
-.nav-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.9rem;
-}
-
-/* Mobile Toggle Button */
-.mobile-toggle {
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
-.mobile-toggle:active {
-  transform: scale(0.9);
-}
-
-/* Responsive Utilities */
-.desktop-only { display: none; }
-.mobile-only { display: flex; }
-
-@media (min-width: 768px) {
-  .desktop-only { display: flex; }
-  .mobile-only { display: none; }
-}
-
-/* 
-  Mobile Panel (Full Screen Overlay)
-*/
-.mobile-panel {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(10, 10, 10, 0.98);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.mobile-panel.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-  padding: 2rem;
-  transform: translateY(20px);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mobile-panel.is-open .mobile-nav {
-  transform: translateY(0);
-}
-
-.mobile-link {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 2rem;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: -0.02em;
-  transition: color 0.2s ease;
-}
-
-.mobile-link.active,
-.mobile-link:active {
-  color: #ffffff;
-}
-
-.mobile-nav-divider {
-  width: 40px;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 1rem 0;
-}
-
-.mobile-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.15rem;
-  padding: 1rem 2rem;
-  margin-top: 1rem;
-}
+.navbar { position: fixed; inset: 0 0 auto; z-index: 1000; padding: 1rem 0; color: #f7fbff; transition: padding .25s ease, background .25s ease, box-shadow .25s ease; }
+.navbar-scrolled { padding: .65rem 0; background: rgba(248,251,253,.94); color: var(--text-strong); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(24,53,78,.08); box-shadow: 0 8px 28px rgba(24,53,78,.08); }
+.navbar-inner { display: flex; align-items: center; justify-content: space-between; }
+.navbar-brand { position: relative; z-index: 1001; display: inline-flex; align-items: center; transition: opacity .2s ease; }
+.navbar-brand img { display: block; width: auto; height: 3rem; max-width: 13rem; object-fit: contain; }
+.navbar-brand:hover { opacity: .8; }
+.navbar-nav { display: flex; align-items: center; gap: 2rem; }
+.nav-link { color: rgba(247,251,255,.78); font-size: .92rem; font-weight: 550; transition: color .2s ease; position: relative; }
+.navbar-scrolled .nav-link { color: #526a7d; }
+.nav-link:hover,.nav-link.active,.navbar-scrolled .nav-link:hover,.navbar-scrolled .nav-link.active { color: #315b7d; }
+.nav-link.active::after { content: ''; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; border-radius: 50%; background: #78aed4; }
+.navbar-actions { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1001; }
+.nav-cta { display: inline-flex; align-items: center; gap: .5rem; padding: .62rem 1.1rem; font-size: .9rem; }
+.mobile-toggle { background: transparent; border: 0; color: inherit; padding: .5rem; display: flex; align-items: center; justify-content: center; }
+.desktop-only { display: none; }.mobile-only { display: flex; }
+.mobile-panel { position: fixed; inset: 0; width: 100%; height: 100svh; background: rgba(247,250,253,.98); backdrop-filter: blur(16px); z-index: 999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s ease; }
+.mobile-panel.is-open { opacity: 1; visibility: visible; }
+.mobile-nav { display: flex; flex-direction: column; align-items: center; gap: 1.65rem; width: 100%; padding: 2rem; transform: translateY(16px); transition: transform .3s ease; }
+.mobile-panel.is-open .mobile-nav { transform: translateY(0); }
+.mobile-link { color: #526a7d; font-size: 1.8rem; font-weight: 650; letter-spacing: -.03em; transition: color .2s ease; }
+.mobile-link.active,.mobile-link:active { color: #315b7d; }
+.mobile-nav-divider { width: 40px; height: 2px; background: #dce6ee; margin: .3rem 0; }
+.mobile-cta { display: inline-flex; align-items: center; gap: .75rem; font-size: 1.05rem; padding: .9rem 1.8rem; }
+@media (min-width: 768px) { .desktop-only { display: flex; }.mobile-only { display: none; } }
+@media (max-width: 420px) { .navbar-brand img { height: 2.5rem; max-width: 10rem; }.navbar { padding-block: .75rem; } }
