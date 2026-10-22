@@ -103,7 +103,7 @@ export default function Footer() {
             <img src={logo} alt={firstName} />
           </Link>
           <p className="footer-tagline">
-            Product engineer crafting resilient, full-stack systems from database to screen.
+            Junior software developer building useful web and mobile apps with React, React Native (Expo), FastAPI, PostgreSQL, and CSS. Always learning, always shipping, and open to collaboration.
           </p>
           <div className="footer-status">
             <span className={`footer-status-dot ${profile?.availability_status === "busy" ? "busy" : "open"}`} aria-hidden="true" />
@@ -140,7 +140,7 @@ export default function Footer() {
           © {year} {profile?.name || "Vincent"}. All rights reserved.
         </p>
         <p className="footer-note footer-note-muted">
-          Built with React, React Native, FastAPI & DRF.
+          Learning, building, and shipping with modern web and mobile technologies.
         </p>
       </div>
     </footer>
