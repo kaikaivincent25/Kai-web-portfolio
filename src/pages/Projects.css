@@ -88,6 +88,7 @@
   padding-block: clamp(5rem, 9vw, 8rem) var(--space-16);
   position: relative;
   isolation: isolate;
+  background: #edf2f6;
 }
 
 .projects-page::before {
@@ -111,7 +112,7 @@
 }
 
 .chip {
-  background: #fff;
+  background: #f8fafb;
   color: #526a7d;
 }
 

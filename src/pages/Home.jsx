@@ -88,12 +88,11 @@ export default function Home() {
               {availabilityLabel}
             </span>
             <h1 className="hero-title">
-              {profile?.name || "Vincent"} — Product Engineer
-              <span className="hero-title-accent"> Crafting resilient full-stack systems.</span>
+              {profile?.name || "Vincent"} — Junior Software Developer
+              <span className="hero-title-accent">Building useful web and mobile apps.</span>
             </h1>
             <p className="hero-tagline">
-              {profile?.tagline ||
-                "I build intentional digital products, handling everything from system architecture and database design to responsive, deliberate user interfaces."}
+              I build modern web and mobile applications with React, React Native (Expo), FastAPI, PostgreSQL, and CSS. I enjoy turning ideas into practical, user-focused software and keep learning across frontend and backend development. AI helps me learn, research, and build faster while I stay hands-on with the solutions I create. Always learning, always shipping, and open to collaboration.
             </p>
             <div className="hero-actions">
               <Link to="/projects" className="btn btn-primary">

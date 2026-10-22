@@ -40,8 +40,7 @@ export default function Projects() {
       <header className="projects-header">
         <h1>Projects</h1>
         <p>
-          Case studies from what I've built — spanning React, React Native,
-          and Django REST Framework, with AI woven into the build process.
+          Selected web and mobile projects I have built and continue to improve, using React, React Native (Expo), FastAPI, PostgreSQL, and CSS.
         </p>
       </header>
 

@@ -32,11 +32,8 @@ function useScrollReveal(dependencies = []) {
 }
 
 // Reusable style builder for Unsplash backgrounds with legibility overlays
-const bgStyle = (url, overlayOpacity = 0.85, isDark = true) => ({
-  backgroundImage: `linear-gradient(rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity}), rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity})), url('${url}')`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundAttachment: "fixed",
+const bgStyle = (_url, _overlayOpacity = 0.85, isDark = true) => ({
+  background: isDark ? "linear-gradient(125deg, #142b42, #244963)" : "linear-gradient(135deg, #eaf1f6, #f1f5f8)",
 });
 
 export default function ProjectDetail() {

@@ -52,11 +52,8 @@ function useScrollReveal(dependencies = []) {
 }
 
 // Reusable style builder for Unsplash backgrounds with legibility overlays
-const bgStyle = (url, overlayOpacity = 0.85, isDark = true) => ({
-  backgroundImage: `linear-gradient(rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity}), rgba(${isDark ? '10, 10, 10' : '250, 250, 249'}, ${overlayOpacity})), url('${url}')`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundAttachment: "fixed", 
+const bgStyle = (_url, _overlayOpacity = 0.85, isDark = true) => ({
+  background: isDark ? "linear-gradient(125deg, #142b42, #244963)" : "linear-gradient(135deg, #eaf1f6, #f1f5f8)",
 });
 
 export default function About() {
@@ -81,17 +78,17 @@ export default function About() {
     {
       icon: Layers,
       label: "Architecture",
-      value: "Full-stack systems from database to screen",
+      value: "Practical apps from interface to data",
     },
     {
       icon: Code2,
       label: "Frontend",
-      value: "React & React Native (Expo) — deliberate, responsive UI",
+      value: "React & React Native (Expo), with responsive CSS",
     },
     {
       icon: Database,
       label: "Backend",
-      value: "Django REST Framework, FastAPI & PostgreSQL",
+      value: "FastAPI and PostgreSQL",
     },
   ];
 
@@ -113,8 +110,7 @@ export default function About() {
               <span className="eyebrow">About</span>
               <h1>Hi, I'm {profile?.name ? profile.name.split(" ")[0] : "Vincent"}</h1>
               <p className="about-intro">
-                {profile?.bio ||
-                  "I craft resilient, full-stack systems from database to screen. Driven by clean architecture, I build interfaces that feel intentional rather than templated."}
+                I'm a junior software developer focused on modern web and mobile apps. I enjoy turning ideas into practical, user-focused software with React, React Native (Expo), FastAPI, PostgreSQL, and CSS, while growing across frontend and backend development.
               </p>
             </div>
           </div>
@@ -149,12 +145,10 @@ export default function About() {
               <span className="eyebrow">Philosophy</span>
               <h2>How I build</h2>
               <p>
-                I use AI tools as part of my workflow — for debugging, scaffolding,
-                and moving faster through repetitive work — but the goal is always
-                to understand what's actually happening under the hood, not skip
-                past it. I'm still learning parts of this stack, and I'd rather be
-                upfront about that than pretend otherwise. It tends to make for
-                better, more honest collaborations.
+                AI is part of my workflow for learning, research, and speeding up
+                development. I stay involved in the decisions and make sure I
+                understand the solutions I build. I am always learning, shipping,
+                and open to collaboration.
               </p>
             </div>
           </div>
@@ -201,8 +195,8 @@ export default function About() {
       >
         {/* Added reveal-up to the entire CTA block */}
         <div className="container cta-container reveal-up">
-          <h2>Ready to build something intentional?</h2>
-          <p>Want to see this architecture in practice, or discuss a collaboration?</p>
+          <h2>Have an idea to build?</h2>
+          <p>Take a look at my projects or get in touch about a role or collaboration.</p>
           <div className="about-cta-actions">
             <Link to="/projects" className="btn btn-primary">
               View projects
