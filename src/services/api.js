@@ -39,9 +39,16 @@ export const personalProjects = [
 ];
 
 function mergeProjects(projects = []) {
-  const bySlug = new Map(personalProjects.map((project) => [project.slug, project]));
-  projects.forEach((project) => bySlug.set(project.slug, { ...bySlug.get(project.slug), ...project }));
-  return [...bySlug.values()];
+  const merged = [...personalProjects];
+  projects.forEach((project) => {
+    const matchIndex = merged.findIndex((item) =>
+      item.slug === project.slug || (item.live_url && project.live_url &&
+        item.live_url.replace(/\/$/, "") === project.live_url.replace(/\/$/, ""))
+    );
+    if (matchIndex >= 0) merged[matchIndex] = { ...merged[matchIndex], ...project };
+    else merged.push(project);
+  });
+  return merged;
 }
 
 export async function getProfile() {

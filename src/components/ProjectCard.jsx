@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import "./ProjectCard.css";
 
 export default function ProjectCard({ project }) {
-  const { title, slug, summary, cover_image, stack_tags = [], featured } = project;
+  const { title, slug, live_url, cover_image } = project;
+  const destination = live_url || `/projects/${slug}`;
 
   return (
     <article className="project-card group">
-      <Link to={`/projects/${slug}`} className="project-card-main" aria-label={`View project: ${title}`}>
+      <a href={destination} target="_blank" rel="noreferrer" className="project-card-main" aria-label={`Open ${title} in a new tab`}>
       <div className="project-card-media">
-        {cover_image ? (
+        {live_url ? (
+          <iframe className="project-card-preview" src={live_url} title={`${title} live preview`} tabIndex={-1} loading="lazy" />
+        ) : cover_image ? (
           <img src={cover_image} alt={title} className="project-card-image" />
         ) : (
           <div className="project-card-fallback" aria-hidden="true">
@@ -17,12 +19,6 @@ export default function ProjectCard({ project }) {
           </div>
         )}
         
-        {featured && (
-          <span className="project-card-badge">
-            <span className="badge-dot" aria-hidden="true" />
-            Featured
-          </span>
-        )}
       </div>
 
       <div className="project-card-body">
@@ -30,26 +26,8 @@ export default function ProjectCard({ project }) {
           <h3 className="project-card-title">{title}</h3>
           <ArrowUpRight className="project-card-icon" size={20} strokeWidth={2} />
         </header>
-        
-        <p className="project-card-summary">{summary}</p>
-        
-        {stack_tags.length > 0 && (
-          <ul className="project-card-tags">
-            {stack_tags.slice(0, 4).map((tag) => (
-              <li key={tag.id || tag.name} className="project-tag-pill">{tag.name}</li>
-            ))}
-          </ul>
-        )}
       </div>
-      </Link>
-      <div className="project-card-footer">
-        <span className="project-status">{project.status || "Selected work"}</span>
-        {project.live_url && (
-          <a className="project-live-link" href={project.live_url} target="_blank" rel="noreferrer">
-            Visit live site <ArrowUpRight size={15} aria-hidden="true" />
-          </a>
-        )}
-      </div>
+      </a>
     </article>
   );
 }
