@@ -11,12 +11,12 @@ export default function Projects() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    Promise.all([getProjects(), getSkills()])
-      .then(([projectData, skillData]) => {
-        setProjects(projectData);
-        setSkills(skillData);
+    Promise.allSettled([getProjects(), getSkills()])
+      .then(([projectResult, skillResult]) => {
+        if (projectResult.status === "fulfilled") setProjects(projectResult.value);
+        else setError("Couldn't load projects right now. Try again in a moment.");
+        if (skillResult.status === "fulfilled") setSkills(skillResult.value);
       })
-      .catch(() => setError("Couldn't load projects right now. Try again in a moment."))
       .finally(() => setLoading(false));
   }, []);
 
