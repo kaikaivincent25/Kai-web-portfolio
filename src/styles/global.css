@@ -1,4 +1,5 @@
 @import "./variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap");
 
 /* --- Reset --- */
 * {
@@ -152,5 +153,120 @@ textarea.field-input {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Shared editorial foundation */
+html {
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(181, 131, 76, 0.045), transparent 34rem),
+    var(--color-bg);
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  border: 0;
+  text-align: left;
+}
+
+::selection {
+  color: var(--text-on-dark);
+  background: var(--clay);
+}
+
+.container {
+  max-width: var(--container-max);
+  padding-inline: var(--gap-page);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-strong);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  line-height: 1.04;
+}
+
+h2 {
+  line-height: 1.15;
+}
+
+.btn {
+  min-height: 46px;
+  padding: 0.78rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #fffaf1;
+  background: var(--clay);
+  box-shadow: 0 8px 20px rgba(135, 92, 48, 0.18);
+}
+
+.btn-primary:hover {
+  color: #fffaf1;
+  background: var(--clay-deep);
+  box-shadow: 0 12px 26px rgba(135, 92, 48, 0.24);
+}
+
+.btn-ghost {
+  color: var(--text-strong);
+  border-color: var(--color-border);
+}
+
+.btn-ghost:hover {
+  color: var(--clay-deep);
+  border-color: var(--clay);
+}
+
+.section-note,
+.empty-state {
+  color: var(--text-muted);
+}
+
+.empty-state {
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 254, 250, 0.72);
+}
+
+.eyebrow,
+.section-kicker {
+  color: var(--clay-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+:focus-visible {
+  outline-color: var(--clay);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-inline: 1.25rem;
   }
 }

@@ -39,3 +39,92 @@
   .project-card { grid-template-columns: 1fr; }
   .project-card-preview-link, .project-card-media, .project-card-preview, .project-card-image, .project-card-fallback { min-height: 190px; }
 }
+
+/* Quiet, image-led project cards */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border: 1px solid rgba(48, 56, 50, 0.1);
+  border-radius: 16px;
+  background: #fffefa;
+  box-shadow: 0 12px 32px rgba(30, 36, 32, 0.055);
+}
+
+.project-card:hover {
+  border-color: rgba(169, 121, 69, 0.32);
+  box-shadow: 0 22px 48px rgba(30, 36, 32, 0.11);
+}
+
+.project-card-preview-link,
+.project-card-media,
+.project-card-preview,
+.project-card-image,
+.project-card-fallback {
+  min-height: 195px;
+}
+
+.project-card-media {
+  background: #e8e4da;
+}
+
+.project-card-media::after {
+  background: linear-gradient(0deg, rgba(20, 27, 25, 0.2), transparent 58%);
+}
+
+.project-card-preview-hint {
+  border-color: rgba(255, 255, 255, 0.23);
+  background: rgba(29, 36, 37, 0.88);
+}
+
+.project-card-body {
+  flex: 1;
+  padding: 1.35rem;
+}
+
+.project-card-title {
+  color: #252d2a;
+  font-size: 1.32rem;
+  letter-spacing: -0.03em;
+}
+
+.project-card-title a:hover,
+.project-card-icon {
+  color: #93683b;
+}
+
+.project-card-summary {
+  margin-bottom: 1.1rem;
+  color: #68716f;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.project-tag-pill {
+  border-color: #e8e2d8;
+  color: #806344;
+  background: #f5f1e9;
+  font-size: 0.68rem;
+}
+
+.project-card-actions {
+  gap: 0.8rem;
+}
+
+.project-card-details-link {
+  color: #805c37;
+}
+
+.project-card-live-link {
+  color: #747a74;
+}
+
+@media (max-width: 760px) {
+  .project-card-preview-link,
+  .project-card-media,
+  .project-card-preview,
+  .project-card-image,
+  .project-card-fallback {
+    min-height: 185px;
+  }
+}

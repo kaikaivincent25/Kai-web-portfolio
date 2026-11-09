@@ -239,3 +239,206 @@
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
+
+/* Case-study presentation */
+.project-detail-page {
+  background: #f7f5f0;
+}
+
+.project-section {
+  padding: clamp(4rem, 7vw, 6.5rem) var(--gap-page);
+}
+
+.project-hero {
+  padding-top: calc(var(--nav-height) + 2.5rem);
+  padding-bottom: 9rem;
+}
+
+.project-hero .container,
+.project-body .container,
+.project-gallery-section .container,
+.project-cta .container {
+  max-width: var(--container-max);
+  padding-inline: var(--gap-page);
+}
+
+.project-hero .back-link {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  color: rgba(247, 245, 239, 0.66);
+}
+
+.project-hero .back-link:hover {
+  color: #e2c296;
+}
+
+.project-hero-content {
+  max-width: 850px;
+}
+
+.project-hero h1 {
+  max-width: 15ch;
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  letter-spacing: -0.065em;
+}
+
+.project-summary {
+  max-width: 64ch;
+  color: rgba(247, 245, 239, 0.73);
+  font-size: clamp(1.03rem, 1.7vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.project-tags {
+  gap: 0.55rem;
+  margin: 1.8rem 0 2rem;
+}
+
+.tag-pill {
+  border-color: rgba(247, 245, 239, 0.17);
+  color: #eee6d9;
+  background: rgba(247, 245, 239, 0.07);
+  font-size: 0.78rem;
+}
+
+.project-links {
+  gap: 0.7rem;
+}
+
+.project-links .btn-primary {
+  color: #211f1a;
+  background: #e4c69a;
+}
+
+.project-links .btn-primary:hover {
+  background: #f0d7b1;
+}
+
+.project-cover-section {
+  margin-top: -6.5rem;
+  padding-inline: var(--gap-page);
+}
+
+.project-cover-wrapper {
+  border: 1px solid rgba(37, 43, 39, 0.1);
+  border-radius: 18px;
+  background: #e8e4da;
+  box-shadow: 0 28px 70px rgba(18, 24, 22, 0.18);
+}
+
+.project-cover-image {
+  max-height: 72vh;
+}
+
+.project-body {
+  padding-top: clamp(4rem, 7vw, 6rem);
+  padding-bottom: 4.5rem;
+}
+
+.project-description-container {
+  max-width: 780px;
+}
+
+.project-body .eyebrow,
+.project-gallery-section .eyebrow {
+  color: #93683b;
+}
+
+.project-description {
+  color: #5e6863;
+  font-size: clamp(1.03rem, 1.55vw, 1.13rem);
+  line-height: 1.9;
+}
+
+.project-gallery-section {
+  border-top-color: rgba(49, 56, 49, 0.08);
+  padding-top: 4rem;
+}
+
+.project-gallery-section h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.project-gallery {
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+
+.gallery-image-wrapper {
+  border-color: rgba(49, 56, 49, 0.08);
+  border-radius: 14px;
+  background: #ebe8e0;
+  box-shadow: 0 12px 30px rgba(30, 36, 32, 0.07);
+}
+
+.gallery-figure figcaption {
+  color: #778079;
+  font-size: 0.86rem;
+}
+
+.project-cta {
+  margin-top: 2rem;
+  background:
+    radial-gradient(ellipse at 80% 8%, rgba(183, 131, 76, 0.16), transparent 36%),
+    linear-gradient(125deg, #1a2222, #283331) !important;
+}
+
+.project-cta .cta-container h2 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+}
+
+.project-cta .cta-container p {
+  color: rgba(247, 245, 239, 0.72);
+}
+
+.project-state-page {
+  min-height: 80vh;
+  padding: calc(var(--nav-height) + 3rem) var(--gap-page) 4rem;
+  background:
+    radial-gradient(ellipse at 82% 10%, rgba(183, 131, 76, 0.18), transparent 36%),
+    linear-gradient(125deg, #1a2222, #283331) !important;
+}
+
+.project-state-page .empty-state {
+  max-width: 650px;
+  padding: 3rem 2rem;
+  border-color: rgba(247, 245, 239, 0.2);
+  color: #f7f5ef;
+  background: rgba(247, 245, 239, 0.06);
+}
+
+.project-state-page .empty-state p {
+  margin-bottom: 1.5rem;
+  color: rgba(247, 245, 239, 0.82);
+}
+
+.state-back-btn {
+  min-height: 44px;
+}
+
+@media (max-width: 640px) {
+  .project-section {
+    padding-inline: 1.25rem;
+  }
+
+  .project-hero {
+    padding-top: calc(var(--nav-height) + 2rem);
+    padding-bottom: 8rem;
+  }
+
+  .project-hero .container,
+  .project-body .container,
+  .project-gallery-section .container,
+  .project-cta .container {
+    padding-inline: 0;
+  }
+
+  .project-cover-section {
+    margin-top: -5rem;
+    padding-inline: 1.25rem;
+  }
+
+  .project-cover-wrapper {
+    border-radius: 13px;
+  }
+}
