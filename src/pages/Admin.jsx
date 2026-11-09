@@ -207,7 +207,7 @@ export default function Admin() {
             <ArrowLeft size={16} /> Back to portfolio
           </Link>
           <span className="admin-kicker">Private area</span>
-          <h1>Owner sign in</h1>
+          <h1>Good to see you.</h1>
           <p>Use your admin API key to open your private portfolio dashboard.</p>
           <form onSubmit={handleLogin}>
             <label htmlFor="admin-key">Admin API key</label>
@@ -250,8 +250,8 @@ export default function Admin() {
             <Link className="admin-back-link" to="/">
               <ArrowLeft size={16} /> View portfolio
             </Link>
-            <span className="admin-kicker">Portfolio workspace</span>
-            <h1>Owner dashboard</h1>
+            <span className="admin-kicker">Your portfolio · Private workspace</span>
+            <h1>Studio dashboard</h1>
           </div>
           <button className="admin-button admin-button-quiet" onClick={signOut} type="button">
             <LogOut size={17} /> Sign out
