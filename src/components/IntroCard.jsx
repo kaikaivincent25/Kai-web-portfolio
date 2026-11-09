@@ -3,7 +3,7 @@ import "./IntroCard.css";
 // A tilted, hand-note-style card replacing the terminal widget.
 // Updated to reflect the confident, end-to-end product engineer narrative
 // while maintaining the personal, approachable aesthetic.
-export default function IntroCard({ availability = "Open to collaborate" }) {
+export default function IntroCard({ availability = "Open to collaborate", tone = "open" }) {
   return (
     <article className="intro-card" aria-label="Quick introduction">
       {/* Decorative tape for the sticky-note effect */}
@@ -19,7 +19,7 @@ export default function IntroCard({ availability = "Open to collaborate" }) {
 
       <footer className="intro-card-footer">
         <div className="availability-badge">
-          <span className="availability-dot" aria-hidden="true" />
+          <span className={`availability-dot ${tone}`} aria-hidden="true" />
           <span className="availability-text">{availability}</span>
         </div>
       </footer>

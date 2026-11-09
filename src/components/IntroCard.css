@@ -78,6 +78,12 @@
   animation: pulse 2s infinite;
 }
 
+.availability-dot.busy {
+  background-color: #d49a45;
+  box-shadow: 0 0 0 2px rgba(212, 154, 69, 0.2);
+  animation: none;
+}
+
 .intro-card-doodle {
   position: absolute;
   bottom: 1.5rem;

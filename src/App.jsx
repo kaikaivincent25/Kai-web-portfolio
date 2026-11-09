@@ -7,6 +7,7 @@ import About from "./pages/About.jsx";
 import Projects from "./pages/Projects.jsx";
 import ProjectDetail from "./pages/ProjectDetail.jsx";
 import Contact from "./pages/Contact.jsx";
+import Admin from "./pages/Admin.jsx";
 
 /**
  * Ensures the browser scrolls back to the top when navigating between pages.
@@ -27,6 +28,12 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+
+  if (pathname.startsWith("/me")) {
+    return <Admin />;
+  }
+
   return (
     <div className="app-layout">
       <ScrollToTop />

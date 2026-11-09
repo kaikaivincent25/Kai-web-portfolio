@@ -12,6 +12,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import { getProfile, sendContactMessage } from "../services/api.js";
+import { availabilityFor } from "../utils/availability.js";
 import portrait from "../assets/dp.webp";
 import { labelForPlatform } from "../utils/social.js";
 import "./Contact.css";
@@ -111,6 +112,7 @@ export default function Contact() {
 
   const socials = profile?.social_links?.length > 0 ? profile.social_links : null;
   const firstName = profile?.name ? profile.name.split(" ")[0] : "Vincent";
+  const availability = availabilityFor(profile?.availability_status);
 
   return (
     <div className="contact-page">
@@ -273,8 +275,8 @@ export default function Contact() {
               />
               
               <div className="availability-badge">
-                <span className={`availability-dot ${profile?.availability_status === "busy" ? "busy" : "open"}`} aria-hidden="true" />
-                <span>{profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate"}</span>
+                <span className={`availability-dot ${availability.tone}`} aria-hidden="true" />
+                <span>{availability.label}</span>
               </div>
 
               <p className="response-note">

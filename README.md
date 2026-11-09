@@ -1,5 +1,21 @@
 # React + Vite
 
+## Owner dashboard
+
+Open `/me/` on the deployed portfolio to sign in, review contact messages,
+update their status, and edit the public profile and social links. The
+dashboard is not linked in public navigation; its data and update endpoints
+remain protected by the backend.
+
+Deploy the backend changes before using the dashboard. Keep `ADMIN_API_KEY`
+and `SECRET_KEY` only in the backend's environment. The dashboard exchanges
+the key you enter for a temporary eight-hour session; it does not put the
+key in the frontend bundle. Ensure the backend CORS allowlist includes the
+portfolio's exact origin and permits the `Authorization` header. Keep the
+Vercel `VITE_API_BASE_URL` pointed at the deployed backend API root ending in
+`/api` (set it in Vercel if it is not already configured); do not put the
+admin key there. The `/me/` route itself is served by the existing SPA rewrite.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:

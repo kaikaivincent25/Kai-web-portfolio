@@ -105,3 +105,31 @@ export async function sendContactMessage(payload) {
   const { data } = await api.post("/contact/", payload);
   return data;
 }
+
+export async function createAdminSession(apiKey) {
+  const { data } = await api.post("/admin/session/", { api_key: apiKey });
+  return data;
+}
+
+export async function updateAdminProfile(token, profile) {
+  const { data } = await api.patch("/profile/", profile, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return data;
+}
+
+export async function getAdminMessages(token) {
+  const { data } = await api.get("/messages/", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return data;
+}
+
+export async function updateAdminMessageStatus(token, id, status) {
+  const { data } = await api.patch(
+    `/messages/${id}/`,
+    { status },
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  return data;
+}

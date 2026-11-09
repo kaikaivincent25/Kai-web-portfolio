@@ -11,6 +11,7 @@ import {
   ArrowUpRight
 } from "lucide-react";
 import { getProfile } from "../services/api.js";
+import { availabilityFor } from "../utils/availability.js";
 import { labelForPlatform } from "../utils/social.js";
 import logo from "../assets/logo.webp";
 import "./Footer.css";
@@ -73,8 +74,7 @@ export default function Footer() {
   const socials = profile?.social_links;
   const hasSocialLinks = Boolean(socials?.length);
   const year = new Date().getFullYear();
-  const availabilityLabel =
-    profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate";
+  const availability = availabilityFor(profile?.availability_status);
   
   const firstName = profile?.name ? profile.name.split(" ")[0] : "Vincent";
 
@@ -106,8 +106,8 @@ export default function Footer() {
             Junior software developer building useful web and mobile apps with React, React Native (Expo), FastAPI, PostgreSQL, and CSS. Always learning, always shipping, and open to collaboration.
           </p>
           <div className="footer-status">
-            <span className={`footer-status-dot ${profile?.availability_status === "busy" ? "busy" : "open"}`} aria-hidden="true" />
-            {availabilityLabel}
+            <span className={`footer-status-dot ${availability.tone}`} aria-hidden="true" />
+            {availability.label}
           </div>
         </div>
 

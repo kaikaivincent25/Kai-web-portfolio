@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { getProfile, getProjects, getSkills } from "../services/api.js";
+import { availabilityFor } from "../utils/availability.js";
 import IntroCard from "../components/IntroCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import portrait from "../assets/dp.webp";
@@ -74,8 +75,7 @@ export default function Home() {
   }, []);
 
   const skillGroups = groupSkillsByCategory(skills);
-  const availabilityLabel =
-    profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate";
+  const availability = availabilityFor(profile?.availability_status);
 
   return (
     <div className="home-page">
@@ -84,8 +84,8 @@ export default function Home() {
         <div className="container hero-grid">
           <div className="hero-copy reveal-up">
             <span className="hero-eyebrow">
-              <span className="hero-eyebrow-dot" aria-hidden="true" />
-              {availabilityLabel}
+              <span className={`hero-eyebrow-dot ${availability.tone}`} aria-hidden="true" />
+              {availability.label}
             </span>
             <h1 className="hero-title">
               {profile?.name || "Vincent"} — Junior Software Developer
@@ -107,7 +107,7 @@ export default function Home() {
           <div className="hero-visual">
             <img className="hero-portrait" src={portrait} alt="Vincent at his desk" />
             <div className="hero-photo-card">
-              <IntroCard availability={availabilityLabel} />
+              <IntroCard availability={availability.label} tone={availability.tone} />
             </div>
           </div>
         </div>
