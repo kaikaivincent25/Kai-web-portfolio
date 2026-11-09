@@ -161,7 +161,7 @@ export default function ProjectDetail() {
               {gallery_images.map((img, index) => (
                 <figure key={img.id} className={`gallery-figure reveal-up delay-${(index % 3 + 1) * 100}`}>
                   <div className="gallery-image-wrapper">
-                    <img src={img.image} alt={img.caption || title} />
+                    <img src={img.image} alt={img.caption || title} loading="lazy" decoding="async" />
                   </div>
                   {img.caption && <figcaption>{img.caption}</figcaption>}
                 </figure>

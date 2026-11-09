@@ -38,6 +38,19 @@ export const personalProjects = [
   },
 ];
 
+function normalizeProject(project) {
+  return {
+    ...project,
+    cover_image: project.cover_image ?? project.cover_image_url,
+    gallery_images:
+      project.gallery_images ??
+      (project.images || []).map((image) => ({
+        ...image,
+        image: image.image ?? image.image_url,
+      })),
+  };
+}
+
 function mergeProjects(projects = []) {
   const merged = [...personalProjects];
   projects.forEach((project) => {
@@ -48,12 +61,12 @@ function mergeProjects(projects = []) {
     if (matchIndex >= 0) merged[matchIndex] = { ...merged[matchIndex], ...project };
     else merged.push(project);
   });
-  return merged;
+  return merged.map(normalizeProject);
 }
 
 export async function getProfile() {
   const { data } = await api.get("/profile/");
-  return data;
+  return { ...data, avatar: data.avatar ?? data.avatar_url };
 }
 
 export async function getSkills() {
@@ -76,10 +89,13 @@ export async function getProjects(params = {}) {
 export async function getProjectBySlug(slug) {
   try {
     const { data } = await api.get(`/projects/${slug}/`);
-    return { ...personalProjects.find((project) => project.slug === slug), ...data };
+    return normalizeProject({
+      ...personalProjects.find((project) => project.slug === slug),
+      ...data,
+    });
   } catch (error) {
     const project = personalProjects.find((item) => item.slug === slug);
-    if (project) return project;
+    if (project) return normalizeProject(project);
     throw error;
   }
 }

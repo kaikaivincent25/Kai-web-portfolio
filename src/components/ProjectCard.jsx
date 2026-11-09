@@ -10,10 +10,8 @@ export default function ProjectCard({ project }) {
     <article className="project-card">
       <Link to={detailPath} className="project-card-preview-link" aria-label={`View details for ${title}`}>
         <div className="project-card-media">
-          {live_url ? (
-            <iframe className="project-card-preview" src={live_url} title={`${title} live preview`} tabIndex={-1} loading="lazy" />
-          ) : cover_image ? (
-            <img src={cover_image} alt={title} className="project-card-image" />
+          {cover_image ? (
+            <img src={cover_image} alt={`${title} project preview`} className="project-card-image" loading="lazy" decoding="async" />
           ) : (
             <div className="project-card-fallback" aria-hidden="true">{title?.[0] || "?"}</div>
           )}

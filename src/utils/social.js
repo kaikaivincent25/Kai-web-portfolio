@@ -9,7 +9,8 @@ export const SOCIAL_LABELS = {
   email: "Email",
   
   // Public & Social
-  twitter: "X (Twitter)", // Updated for modern usage
+  twitter: "X",
+  x: "X",
   whatsapp: "WhatsApp",
   instagram: "Instagram",
   facebook: "Facebook",
@@ -30,15 +31,3 @@ export function labelForPlatform(platform) {
   // Optional: Capitalize the first letter as a fallback for unknown platforms
   return platform ? platform.charAt(0).toUpperCase() + platform.slice(1) : "";
 }
-
-/**
- * Default links used during loading, API errors, or empty database states.
- * Redesigned to feel intentional for a software developer's portfolio, 
- * prioritizing GitHub and LinkedIn over generic templated socials like Facebook.
- */
-export const FALLBACK_SOCIALS = [
-  { platform: "github", href: "https://github.com" }, 
-  { platform: "linkedin", href: "https://linkedin.com" },
-  { platform: "twitter", href: "https://x.com" },
-  { platform: "email", href: "mailto:hello@example.com" },
-];

@@ -11,8 +11,8 @@ import {
   ArrowUpRight
 } from "lucide-react";
 import { getProfile } from "../services/api.js";
-import { labelForPlatform, FALLBACK_SOCIALS } from "../utils/social.js";
-import logo from "../assets/logo.png";
+import { labelForPlatform } from "../utils/social.js";
+import logo from "../assets/logo.webp";
 import "./Footer.css";
 
 const SITE_LINKS = [
@@ -71,7 +71,7 @@ export default function Footer() {
   }, []);
 
   const socials = profile?.social_links;
-  const showFallback = !socials || socials.length === 0;
+  const hasSocialLinks = Boolean(socials?.length);
   const year = new Date().getFullYear();
   const availabilityLabel =
     profile?.availability_status === "busy" ? "Currently busy" : "Open to collaborate";
@@ -126,12 +126,12 @@ export default function Footer() {
         </div>
 
         {/* Socials Column */}
-        <div className="footer-column footer-reveal-up delay-200">
-          <h2 className="footer-heading">Connect</h2>
-          <ul className="footer-socials">
-            {showFallback ? renderSocialLinks(FALLBACK_SOCIALS) : renderSocialLinks(socials)}
-          </ul>
-        </div>
+        {hasSocialLinks && (
+          <div className="footer-column footer-reveal-up delay-200">
+            <h2 className="footer-heading">Connect</h2>
+            <ul className="footer-socials">{renderSocialLinks(socials)}</ul>
+          </div>
+        )}
       </div>
 
       {/* Bottom Legal / Tech Note */}

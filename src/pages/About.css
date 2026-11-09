@@ -558,3 +558,63 @@
     margin-bottom: 3rem;
   }
 }
+
+.about-resume-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+}
+
+.about-journey {
+  border-top: 1px solid rgba(49, 56, 49, 0.08);
+  background: #f7f5f0;
+}
+
+.about-journey .eyebrow {
+  margin-bottom: 0.65rem;
+}
+
+.about-journey h2 {
+  margin-bottom: 2rem;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+}
+
+.journey-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  max-width: 720px;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(49, 56, 49, 0.09);
+  border-radius: 14px;
+  background: #fffefa;
+  box-shadow: 0 12px 30px rgba(30, 36, 32, 0.045);
+}
+
+.journey-marker {
+  flex: 0 0 11px;
+  width: 11px;
+  height: 11px;
+  margin-top: 0.45rem;
+  border: 3px solid #f1e4d1;
+  border-radius: 50%;
+  background: #a97945;
+  box-shadow: 0 0 0 1px rgba(169, 121, 69, 0.35);
+}
+
+.journey-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #8a6847;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.journey-entry p {
+  color: #37413c;
+  font-size: 0.98rem;
+}

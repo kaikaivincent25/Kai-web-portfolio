@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Code2, Layers, Database, Sparkles } from "lucide-react";
+import { Code2, Layers, Database, Sparkles, ExternalLink } from "lucide-react";
 import { getProfile, getSkills } from "../services/api.js";
-import portrait from "../assets/dp.png";
+import portrait from "../assets/dp.webp";
 import "./About.css";
 
 const CATEGORY_LABELS = {
@@ -75,6 +75,10 @@ export default function About() {
     acc[skill.category].push(skill);
     return acc;
   }, {});
+  const resumeUrl =
+    profile?.resume_url && !/example\.com/i.test(profile.resume_url)
+      ? profile.resume_url
+      : null;
 
   const facts = [
     {
@@ -105,15 +109,26 @@ export default function About() {
           <div className="about-hero-content">
             <img
               className="about-avatar"
-              src={profile?.avatar || portrait}
+              src={profile?.avatar || profile?.avatar_url || portrait}
               alt={profile?.name || "Vincent"}
             />
             <div className="about-hero-text">
               <span className="eyebrow">About</span>
               <h1>Hi, I'm {profile?.name ? profile.name.split(" ")[0] : "Vincent"}</h1>
               <p className="about-intro">
-                I'm a junior software developer focused on modern web and mobile apps. I enjoy turning ideas into practical, user-focused software with React, React Native (Expo), FastAPI, PostgreSQL, and CSS, while growing across frontend and backend development.
+                {profile?.bio ||
+                  "I'm a junior software developer focused on modern web and mobile apps. I enjoy turning ideas into practical, user-focused software with React, React Native (Expo), FastAPI, PostgreSQL, and CSS, while growing across frontend and backend development."}
               </p>
+              {resumeUrl && (
+                <a
+                  className="btn btn-ghost-light about-resume-link"
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View résumé <ExternalLink size={16} aria-hidden="true" />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -185,6 +200,22 @@ export default function About() {
                   </ul>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {profile?.education && (
+        <section className="about-section about-journey theme-light">
+          <div className="container">
+            <span className="eyebrow">Education</span>
+            <h2>Foundations for what comes next</h2>
+            <div className="journey-entry">
+              <span className="journey-marker" aria-hidden="true" />
+              <div>
+                <span className="journey-label">Academic background</span>
+                <p>{profile.education}</p>
+              </div>
             </div>
           </div>
         </section>

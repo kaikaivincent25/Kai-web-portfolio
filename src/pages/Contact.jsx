@@ -12,7 +12,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import { getProfile, sendContactMessage } from "../services/api.js";
-import { labelForPlatform, FALLBACK_SOCIALS } from "../utils/social.js";
+import { labelForPlatform } from "../utils/social.js";
 import "./Contact.css";
 
 const INTENTS = [
@@ -262,8 +262,8 @@ export default function Contact() {
           {/* Aside Section */}
           <aside className="contact-aside reveal-up delay-200">
             <div className="aside-card">
-              {profile?.avatar ? (
-                <img className="contact-avatar" src={profile.avatar} alt={profile.name} />
+              {profile?.avatar || profile?.avatar_url ? (
+                <img className="contact-avatar" src={profile.avatar || profile.avatar_url} alt={profile.name} />
               ) : (
                 <div className="contact-avatar fallback-avatar">
                   {firstName.charAt(0)}
@@ -280,11 +280,11 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="social-links-container">
-              <h3>Connect elsewhere</h3>
-              <ul className="social-links-list">
-                {(socials || FALLBACK_SOCIALS.map((s) => ({ platform: s.platform, resolved_url: s.href, id: s.platform }))).map(
-                  (s) => {
+            {socials && (
+              <div className="social-links-container">
+                <h3>Connect elsewhere</h3>
+                <ul className="social-links-list">
+                  {socials.map((s) => {
                     const Icon = SOCIAL_ICONS[s.platform] || Mail;
                     return (
                       <li key={s.id}>
@@ -294,10 +294,10 @@ export default function Contact() {
                         </a>
                       </li>
                     );
-                  }
-                )}
-              </ul>
-            </div>
+                  })}
+                </ul>
+              </div>
+            )}
           </aside>
 
         </div>
