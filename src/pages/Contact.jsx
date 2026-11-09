@@ -12,6 +12,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import { getProfile, sendContactMessage } from "../services/api.js";
+import portrait from "../assets/dp.webp";
 import { labelForPlatform } from "../utils/social.js";
 import "./Contact.css";
 
@@ -262,13 +263,14 @@ export default function Contact() {
           {/* Aside Section */}
           <aside className="contact-aside reveal-up delay-200">
             <div className="aside-card">
-              {profile?.avatar || profile?.avatar_url ? (
-                <img className="contact-avatar" src={profile.avatar || profile.avatar_url} alt={profile.name} />
-              ) : (
-                <div className="contact-avatar fallback-avatar">
-                  {firstName.charAt(0)}
-                </div>
-              )}
+              <img
+                className="contact-avatar"
+                src={profile?.avatar || profile?.avatar_url || portrait}
+                alt={profile?.name || firstName}
+                onError={(event) => {
+                  event.currentTarget.src = portrait;
+                }}
+              />
               
               <div className="availability-badge">
                 <span className={`availability-dot ${profile?.availability_status === "busy" ? "busy" : "open"}`} aria-hidden="true" />

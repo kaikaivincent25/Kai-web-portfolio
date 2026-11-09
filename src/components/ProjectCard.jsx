@@ -1,21 +1,47 @@
-import { ArrowUpRight, ExternalLink, FileText, Github } from "lucide-react";
+import { ArrowUpRight, ExternalLink, FileText, Github, MonitorPlay } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./ProjectCard.css";
 
 export default function ProjectCard({ project }) {
   const { title, slug, live_url, repo_url, cover_image, summary, stack_tags = [] } = project;
   const detailPath = `/projects/${slug}`;
+  const [previewFailed, setPreviewFailed] = useState(false);
+  const [coverFailed, setCoverFailed] = useState(false);
+  const pagePreview = previewUrlFor(live_url);
+  const previewImage =
+    pagePreview && !previewFailed
+      ? pagePreview
+      : cover_image && !coverFailed
+        ? cover_image
+        : null;
 
   return (
     <article className="project-card">
       <Link to={detailPath} className="project-card-preview-link" aria-label={`View details for ${title}`}>
         <div className="project-card-media">
-          {cover_image ? (
-            <img src={cover_image} alt={`${title} project preview`} className="project-card-image" loading="lazy" decoding="async" />
+          {previewImage ? (
+            <img
+              src={previewImage}
+              alt={`${title} live website preview`}
+              className="project-card-image"
+              loading="lazy"
+              decoding="async"
+              onError={() => {
+                if (pagePreview && !previewFailed) setPreviewFailed(true);
+                else setCoverFailed(true);
+              }}
+            />
           ) : (
-            <div className="project-card-fallback" aria-hidden="true">{title?.[0] || "?"}</div>
+            <div className="project-card-fallback">
+              <MonitorPlay size={28} strokeWidth={1.5} aria-hidden="true" />
+              <span>Live preview unavailable</span>
+            </div>
           )}
-          <span className="project-card-preview-hint">View case study <ArrowUpRight size={15} aria-hidden="true" /></span>
+          <span className="project-card-preview-hint">
+            {previewImage ? "Live page preview" : "View project"}
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </span>
         </div>
       </Link>
       <div className="project-card-body">
@@ -51,4 +77,18 @@ export default function ProjectCard({ project }) {
       </div>
     </article>
   );
+}
+
+function previewUrlFor(liveUrl) {
+  if (!liveUrl) return null;
+
+  try {
+    const url = new URL(liveUrl);
+    if (url.protocol !== "https:" || url.username || url.password) return null;
+
+    // Screenshots work for sites that block iframes with a frame-ancestors policy.
+    return `https://image.thum.io/get/width/1200/crop/750/noanimate/${url.href}`;
+  } catch {
+    return null;
+  }
 }

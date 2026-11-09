@@ -65,7 +65,11 @@ export default function ProjectDetail() {
         style={bgStyle("https://wallpaperaccess.com/full/210888.jpg", 0.9, true)}
       >
         <div className="container empty-state reveal-up">
-          {status === "loading" && <p>Loading project details…</p>}
+          {status === "loading" && (
+            <p aria-live="polite">
+              Loading project details… The portfolio server may take a moment to start.
+            </p>
+          )}
           {status === "not_found" && <p>Couldn't find that project.</p>}
           {status === "error" && <p>Something went wrong loading this project. Try again shortly.</p>}
           

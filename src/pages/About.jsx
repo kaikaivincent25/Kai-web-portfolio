@@ -111,6 +111,9 @@ export default function About() {
               className="about-avatar"
               src={profile?.avatar || profile?.avatar_url || portrait}
               alt={profile?.name || "Vincent"}
+              onError={(event) => {
+                event.currentTarget.src = portrait;
+              }}
             />
             <div className="about-hero-text">
               <span className="eyebrow">About</span>

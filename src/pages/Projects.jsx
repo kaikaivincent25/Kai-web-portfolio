@@ -65,7 +65,9 @@ export default function Projects() {
       )}
 
       {loading ? (
-        <p className="section-note">Loading projects…</p>
+        <p className="section-note" aria-live="polite">
+          Loading projects… The portfolio server may take a moment to start.
+        </p>
       ) : error ? (
         <div className="empty-state">
           <p>{error}</p>

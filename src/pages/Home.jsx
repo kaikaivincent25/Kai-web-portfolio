@@ -104,7 +104,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-visual reveal-up delay-200">
+          <div className="hero-visual">
             <img className="hero-portrait" src={portrait} alt="Vincent at his desk" />
             <div className="hero-photo-card">
               <IntroCard availability={availabilityLabel} />
@@ -127,7 +127,9 @@ export default function Home() {
           </div>
 
           {loadingProjects ? (
-            <p className="section-note reveal-up delay-100">Loading projects…</p>
+            <p className="section-note reveal-up delay-100" aria-live="polite">
+              Loading projects… The portfolio server may take a moment to start.
+            </p>
           ) : projects.length === 0 ? (
             <div className="empty-state reveal-up delay-100">
               <p>No featured projects yet — check back soon.</p>
