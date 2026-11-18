@@ -12,8 +12,9 @@ and `SECRET_KEY` only in the backend's environment. The dashboard exchanges
 the key you enter for a temporary eight-hour session; it does not put the
 key in the frontend bundle. Ensure the backend CORS allowlist includes the
 portfolio's exact origin and permits the `Authorization` header. Keep the
-Vercel `VITE_API_BASE_URL` pointed at the deployed backend API root ending in
-`/api` (set it in Vercel if it is not already configured); do not put the
+frontend's `VITE_API_BASE_URL` unset or set to
+`https://p-backend-bukd.onrender.com/api`; production defaults to that backend
+and local development continues using the Vite `/api` proxy. Do not put the
 admin key there. The `/me/` route itself is served by the existing SPA rewrite.
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.

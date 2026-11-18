@@ -1,8 +1,13 @@
 import axios from "axios";
 
 // In dev, Vite proxies /api to http://localhost:8000 (see vite.config.js).
-// In production, set VITE_API_BASE_URL to your deployed Django API root.
-const baseURL = import.meta.env.VITE_API_BASE_URL || "/api";
+// Production requests go directly to the deployed FastAPI service.
+const configuredBaseURL = import.meta.env.VITE_API_BASE_URL || "";
+const baseURL = import.meta.env.DEV
+  ? configuredBaseURL || "/api"
+  : /^https?:\/\//i.test(configuredBaseURL)
+    ? configuredBaseURL
+    : "https://p-backend-bukd.onrender.com/api";
 
 export const api = axios.create({
   baseURL,
