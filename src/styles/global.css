@@ -162,9 +162,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(ellipse at 12% 0%, rgba(181, 131, 76, 0.045), transparent 34rem),
-    var(--color-bg);
+  background: var(--color-bg);
   color: var(--text-body);
   font-size: 16px;
   line-height: 1.7;
@@ -185,6 +183,18 @@ body {
 .container {
   max-width: var(--container-max);
   padding-inline: var(--gap-page);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  color: #fffefa;
+  background: #ad6d43;
 }
 
 h1,

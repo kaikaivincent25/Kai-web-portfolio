@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X, MessageSquare } from "lucide-react";
-import logo from "../assets/logo.webp";
 import "./Navbar.css";
 
 // "Contact" is removed from this array so we can feature it as a distinct CTA button
@@ -54,9 +53,14 @@ export default function Navbar() {
   return (
     <header className={`navbar ${isScrolled ? "navbar-scrolled" : ""}`}>
       <div className="container navbar-inner">
-        {/* Brand / Logo */}
-        <NavLink to="/" className="navbar-brand" onClick={() => setIsOpen(false)}>
-          <img src={logo} alt="Vincent home" />
+        {/* Brand */}
+        <NavLink
+          to="/"
+          className="navbar-brand"
+          aria-label="Kaikai. V home"
+          onClick={() => setIsOpen(false)}
+        >
+          <span>Kaikai<span className="brand-period">.</span> <span className="brand-initial">V</span></span>
         </NavLink>
 
         {/* Desktop Navigation */}

@@ -13,7 +13,6 @@ import {
 import { getProfile } from "../services/api.js";
 import { availabilityFor } from "../utils/availability.js";
 import { labelForPlatform } from "../utils/social.js";
-import logo from "../assets/logo.webp";
 import "./Footer.css";
 
 const SITE_LINKS = [
@@ -76,8 +75,6 @@ export default function Footer() {
   const year = new Date().getFullYear();
   const availability = availabilityFor(profile?.availability_status);
   
-  const firstName = profile?.name ? profile.name.split(" ")[0] : "Vincent";
-
   const renderSocialLinks = (links) => {
     return links.map((s) => {
       const Icon = SOCIAL_ICONS[s.platform] || ArrowUpRight;
@@ -100,7 +97,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="footer-brand footer-reveal-up">
           <Link to="/" className="footer-logo" onClick={() => window.scrollTo(0,0)}>
-            <img src={logo} alt={firstName} />
+            <span>Kaikai<span className="brand-period">.</span> <span className="brand-initial">V</span></span>
           </Link>
           <p className="footer-tagline">
             Junior software developer building useful web and mobile apps with React, React Native (Expo), FastAPI, PostgreSQL, and CSS. Always learning, always shipping, and open to collaboration.

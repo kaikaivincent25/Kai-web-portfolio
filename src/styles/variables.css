@@ -1,26 +1,22 @@
 :root {
-  /* Calm blue palette with clear contrast for a light portfolio. */
-  --color-blue: #426f94;
-  --color-blue-dark: #315b7d;
-  --color-green: #378a72;
-  --color-navy: #18354e;
-  --color-navy-soft: #244963;
-  --color-ink-soft: #31536f;
+  --color-blue: #ad6d43;
+  --color-blue-dark: #895231;
+  --color-green: #527b65;
+  --color-navy: #1b2623;
+  --color-navy-soft: #293632;
+  --color-ink-soft: #394640;
 
-  /* --- Neutrals --- */
-  --color-white: #ffffff;
-  --color-bg: #f6f9fc;
-  --color-border: #dce6ee;
-  --color-text-primary: #18354e;
-  --color-text-secondary: #526a7d;
-  --color-text-inverse: #ffffff;
+  --color-white: #fffefa;
+  --color-bg: #f6f5f0;
+  --color-border: #e4e1d8;
+  --color-text-primary: #202925;
+  --color-text-secondary: #68716b;
+  --color-text-inverse: #fffefa;
 
-  /* --- Feedback --- */
   --color-success: var(--color-green);
-  --color-danger: #b54747;
+  --color-danger: #a75043;
 
-  /* --- Typography --- */
-  --font-display: "Fraunces", "Georgia", serif;
+  --font-display: "Fraunces", Georgia, serif;
   --font-body: "Work Sans", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", Consolas, monospace;
 
@@ -37,7 +33,6 @@
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* --- Spacing scale --- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -48,75 +43,28 @@
   --space-16: 4rem;
   --space-24: 6rem;
 
-  /* --- Radius & shadow: rounder, softer, warm-toned --- */
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 28px;
-  --shadow-card: 0 18px 45px rgba(24, 53, 78, 0.09);
-  --shadow-card-hover: 0 24px 60px rgba(24, 53, 78, 0.15);
-
-  /* --- Motion --- */
-  --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
-
-  /* --- Layout --- */
-  --container-max: 1160px;
-  --nav-height: 76px;
-
-  /* Compatibility aliases for the legacy base stylesheet. */
-  --sand: var(--color-bg);
-  --sand-deep: #edf3f8;
-  --sand-line: var(--color-border);
-  --card: #ffffff;
-  --ink: var(--color-navy);
-  --ink-soft: var(--color-ink-soft);
-  --ink-line: var(--color-border);
-  --clay: var(--color-blue);
-  --clay-deep: var(--color-blue-dark);
-  --clay-tint: #fbeeee;
-  --gold: #f4c95d;
-  --teal-dot: var(--color-green);
-  --text-strong: var(--color-text-primary);
-  --text-body: var(--color-text-secondary);
-  --text-muted: var(--color-text-secondary);
-  --text-faint: #71879a;
-  --text-on-dark: var(--color-text-primary);
-  --text-on-dark-muted: var(--color-text-secondary);
-  --success: var(--color-success);
-  --error: var(--color-danger);
-  --max-width: var(--container-max);
-  --gap-page: clamp(1.25rem, 4vw, 3rem);
-
-  /* Premium editorial palette */
-  --color-blue: #a97945;
-  --color-blue-dark: #805c37;
-  --color-green: #4e806d;
-  --color-navy: #1d2425;
-  --color-navy-soft: #2a3333;
-  --color-ink-soft: #344041;
-  --color-bg: #f5f3ee;
-  --color-border: #e4e0d7;
-  --color-text-primary: #202727;
-  --color-text-secondary: #68716f;
-  --color-danger: #a75043;
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
-  --shadow-card: 0 16px 40px rgba(27, 35, 33, 0.08);
-  --shadow-card-hover: 0 24px 56px rgba(27, 35, 33, 0.14);
+  --shadow-card: 0 16px 40px rgba(27, 35, 33, 0.07);
+  --shadow-card-hover: 0 24px 56px rgba(27, 35, 33, 0.13);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
   --container-max: 1200px;
   --nav-height: 78px;
 
   --sand: var(--color-bg);
-  --sand-deep: #ebe8e0;
+  --sand-deep: #efede6;
   --sand-line: var(--color-border);
   --card: #fffefa;
   --ink: var(--color-navy);
   --ink-soft: var(--color-navy-soft);
-  --ink-line: rgba(245, 243, 238, 0.15);
-  --clay: #b5834c;
-  --clay-deep: #93683b;
-  --clay-tint: rgba(181, 131, 76, 0.12);
+  --ink-line: rgba(32, 41, 37, 0.12);
+  --clay: #b4774d;
+  --clay-deep: var(--color-blue-dark);
+  --clay-tint: rgba(180, 119, 77, 0.12);
   --gold: #d6ad66;
   --teal-dot: #83aa91;
   --text-strong: var(--color-text-primary);
@@ -125,8 +73,8 @@
   --text-faint: #89908b;
   --text-on-dark: #f7f5ef;
   --text-on-dark-muted: #c1c5be;
-  --success: #4e806d;
-  --error: #a75043;
+  --success: var(--color-success);
+  --error: var(--color-danger);
   --max-width: var(--container-max);
   --gap-page: clamp(1.25rem, 4.5vw, 4rem);
 }

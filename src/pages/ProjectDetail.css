@@ -14,10 +14,10 @@
 }
 
 /* Base styles matching your About page */
-.theme-dark { color: #f5f5f4; }
-.theme-dark h1, .theme-dark h2 { color: #ffffff; }
-.theme-light { color: #44403c; }
-.theme-light h1, .theme-light h2 { color: #1c1917; }
+.project-detail-page .theme-dark { color: #f5f5f4; }
+.project-detail-page .theme-dark h1, .project-detail-page .theme-dark h2 { color: #ffffff; }
+.project-detail-page .theme-light { color: #44403c; }
+.project-detail-page .theme-light h1, .project-detail-page .theme-light h2 { color: #1c1917; }
 .eyebrow {
   display: block;
   font-size: 0.875rem;
@@ -27,7 +27,7 @@
   margin-bottom: 0.75rem;
   color: var(--color-accent, #10B981);
 }
-.theme-light .eyebrow { color: var(--color-accent-dark, #059669); }
+.project-detail-page .theme-light .eyebrow { color: var(--color-accent-dark, #059669); }
 
 /* Status Page (Loading/Error/404) */
 .project-state-page {

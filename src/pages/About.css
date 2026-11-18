@@ -26,27 +26,27 @@
   Theme Colors & Typography
   Handles contrast over the light/dark image overlays.
 */
-.theme-dark {
+.about-page .theme-dark {
   color: #f5f5f4; /* Light stone */
 }
-.theme-dark h1, 
-.theme-dark h2, 
-.theme-dark h3 {
+.about-page .theme-dark h1, 
+.about-page .theme-dark h2, 
+.about-page .theme-dark h3 {
   color: #ffffff;
 }
-.theme-dark .eyebrow {
+.about-page .theme-dark .eyebrow {
   color: var(--color-accent, #10B981);
 }
 
-.theme-light {
+.about-page .theme-light {
   color: #44403c; /* Dark stone */
 }
-.theme-light h1, 
-.theme-light h2, 
-.theme-light h3 {
+.about-page .theme-light h1, 
+.about-page .theme-light h2, 
+.about-page .theme-light h3 {
   color: #1c1917; /* Near black */
 }
-.theme-light .eyebrow {
+.about-page .theme-light .eyebrow {
   color: var(--color-accent-dark, #059669);
 }
 

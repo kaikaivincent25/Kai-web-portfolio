@@ -1,9 +1,9 @@
 .home-page { width: 100%; display: flex; flex-direction: column; overflow: hidden; }
 .home-section { width: 100%; padding: clamp(4rem, 8vw, 7rem) var(--gap-page); position: relative; }
 .home-section.theme-light { color: var(--text-body); background: var(--color-bg); }
-.theme-dark { color: #eaf3ff; }
-.theme-dark h1, .theme-dark h2, .theme-dark h3 { color: #f7fbff; }
-.theme-light h1, .theme-light h2, .theme-light h3 { color: var(--text-strong); }
+.home-page .theme-dark { color: #eaf3ff; }
+.home-page .theme-dark h1, .home-page .theme-dark h2, .home-page .theme-dark h3 { color: #f7fbff; }
+.home-page .theme-light h1, .home-page .theme-light h2, .home-page .theme-light h3 { color: var(--text-strong); }
 .hero { min-height: min(780px, 92svh); display: flex; align-items: center; padding-top: calc(var(--nav-height) + 4rem); background: radial-gradient(ellipse at 82% 20%, rgba(111, 160, 201, .28), transparent 36%), linear-gradient(120deg, #142b42, #1d3a55 58%, #294c67); isolation: isolate; }
 .hero::after { content: ""; position: absolute; width: 33rem; height: 33rem; right: -12rem; bottom: -19rem; border: 1px solid rgba(223,239,255,.16); border-radius: 50%; box-shadow: 0 0 0 3rem rgba(223,239,255,.025), 0 0 0 6rem rgba(223,239,255,.025); z-index: -1; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .8fr); gap: clamp(2rem, 7vw, 6rem); align-items: center; }
@@ -305,4 +305,56 @@
     padding-inline: 1rem;
     border-radius: 18px;
   }
+}
+
+.home-page {
+  background: #f6f5f0;
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse at 78% 12%, rgba(184, 137, 92, 0.16), transparent 34%),
+    linear-gradient(118deg, #172321 0%, #202c29 62%, #303b36 100%);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.hero-title-accent {
+  color: #d3b38b;
+}
+
+.home-section.theme-light {
+  background: #f6f5f0;
+}
+
+.section-heading {
+  border-color: #e4e1d8;
+}
+
+.section-kicker,
+.section-heading-link {
+  color: #895231;
+}
+
+.stack-section {
+  background: #eeece5 !important;
+}
+
+.stack-column {
+  border-color: rgba(32, 41, 37, 0.1);
+  background: rgba(255, 254, 250, 0.82);
+}
+
+.stack-item {
+  border-color: #e7e3da;
+  background: #fffefa;
+}
+
+.cta-band.home-section {
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(189, 147, 91, 0.14), transparent 34%),
+    #1b2623;
 }
