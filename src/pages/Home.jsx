@@ -1,7 +1,7 @@
 ﻿import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { getProfile, getProjects, getSkills } from "../services/api.js";
+import { getProfile, getProjects, getSkills, personalProjects, personalSkills } from "../services/api.js";
 import { availabilityFor } from "../utils/availability.js";
 import IntroCard from "../components/IntroCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
@@ -59,19 +59,19 @@ function useScrollReveal(dependencies = []) {
 
 export default function Home() {
   const [profile, setProfile] = useState(null);
-  const [projects, setProjects] = useState([]);
-  const [skills, setSkills] = useState([]);
-  const [loadingProjects, setLoadingProjects] = useState(true);
+  const [projects, setProjects] = useState(() => personalProjects.filter((project) => project.featured));
+  const [skills, setSkills] = useState(personalSkills);
 
   useScrollReveal([projects, skills]);
 
   useEffect(() => {
     getProfile().then(setProfile).catch(() => setProfile(null));
-    getSkills().then(setSkills).catch(() => setSkills([]));
+    getSkills().then(setSkills).catch(() => {});
     getProjects({ featured: true })
-      .then(setProjects)
-      .catch(() => setProjects([]))
-      .finally(() => setLoadingProjects(false));
+      .then((nextProjects) => {
+        if (nextProjects.length) setProjects(nextProjects);
+      })
+      .catch(() => {});
   }, []);
 
   const skillGroups = groupSkillsByCategory(skills);
@@ -92,7 +92,7 @@ export default function Home() {
               <span className="hero-title-accent">Building useful web and mobile apps.</span>
             </h1>
             <p className="hero-tagline">
-              I build modern web and mobile applications with React, React Native (Expo), FastAPI, PostgreSQL, and CSS. I enjoy turning ideas into practical, user-focused software and keep learning across frontend and backend development. AI helps me learn, research, and build faster while I stay hands-on with the solutions I create. Always learning, always shipping, and open to collaboration.
+              I build practical web and mobile products with React, React Native, FastAPI, and PostgreSQL. I enjoy turning ideas into useful, user-focused software and stay hands-on with every solution I create.
             </p>
             <div className="hero-actions">
               <Link to="/projects" className="btn btn-primary">
@@ -126,11 +126,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {loadingProjects ? (
-            <p className="section-note reveal-up delay-100" aria-live="polite">
-              Loading projects… The portfolio server may take a moment to start.
-            </p>
-          ) : projects.length === 0 ? (
+          {projects.length === 0 ? (
             <div className="empty-state reveal-up delay-100">
               <p>No featured projects yet — check back soon.</p>
             </div>

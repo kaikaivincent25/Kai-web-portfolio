@@ -100,7 +100,7 @@ export default function Footer() {
             <span>Kaikai<span className="brand-period">.</span> <span className="brand-initial">V</span></span>
           </Link>
           <p className="footer-tagline">
-            Junior software developer building useful web and mobile apps with React, React Native (Expo), FastAPI, PostgreSQL, and CSS. Always learning, always shipping, and open to collaboration.
+            Full-stack developer building practical web and mobile products with React, React Native, FastAPI, and PostgreSQL.
           </p>
           <div className="footer-status">
             <span className={`footer-status-dot ${availability.tone}`} aria-hidden="true" />

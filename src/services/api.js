@@ -22,7 +22,7 @@ export const personalProjects = [
   {
     id: "portfolio-site",
     title: "Personal Portfolio",
-    slug: "personal-portfolio",
+    slug: "personal-portfolio-api",
     summary: "A responsive portfolio for sharing my work, skills, and the way I approach building software.",
     description: "My personal portfolio, built to present selected projects and make it easy to learn about my work and get in touch. I continue to refine its content and experience as I grow as a developer.",
     stack_tags: ["React", "Vite", "CSS"].map((name) => ({ id: name, name })),
@@ -41,6 +41,28 @@ export const personalProjects = [
     live_url: "https://retailshop-information-system.vercel.app/",
     status: "Ongoing",
   },
+  {
+    id: "in4",
+    title: "IN4",
+    slug: "in4",
+    summary: "A mobile-first knowledge and professional networking platform connecting readers with verified experts.",
+    description: "IN4 is a mobile-first digital knowledge and professional networking platform built with React Native, Expo, FastAPI, PostgreSQL, and Supabase. Users can discover credible articles, search by category, interact with experts, save content, and participate in discussions. The platform also includes expert verification, content publishing, secure authentication, and M-Pesa-powered verification payments.",
+    stack_tags: ["React Native (Expo)", "FastAPI", "PostgreSQL", "Supabase"].map((name) => ({ id: name, name })),
+    featured: true,
+    live_url: "https://expo.dev/accounts/kaikaivincent25/projects/in4/builds/f03e3999-d16c-4873-94e1-9cba27457745",
+    repo_url: "https://github.com/kaikaivincent25/IN4-frontend",
+    status: "Ongoing",
+  },
+];
+
+export const personalSkills = [
+  { id: "react", name: "React", category: "frontend", proficiency: "confident" },
+  { id: "javascript", name: "JavaScript", category: "frontend", proficiency: "confident" },
+  { id: "css", name: "CSS", category: "frontend", proficiency: "confident" },
+  { id: "fastapi", name: "FastAPI", category: "backend", proficiency: "confident" },
+  { id: "python", name: "Python", category: "backend", proficiency: "confident" },
+  { id: "postgresql", name: "PostgreSQL", category: "backend", proficiency: "confident" },
+  { id: "react-native", name: "React Native (Expo)", category: "mobile", proficiency: "confident" },
 ];
 
 function normalizeProject(project) {
@@ -75,8 +97,12 @@ export async function getProfile() {
 }
 
 export async function getSkills() {
-  const { data } = await api.get("/skills/");
-  return data;
+  try {
+    const { data } = await api.get("/skills/");
+    return data?.length ? data : personalSkills;
+  } catch {
+    return personalSkills;
+  }
 }
 
 export async function getProjects(params = {}) {

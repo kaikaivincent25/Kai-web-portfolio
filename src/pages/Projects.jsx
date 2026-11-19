@@ -1,20 +1,20 @@
 import { useEffect, useMemo, useState } from "react";
-import { getProjects, getSkills } from "../services/api.js";
+import { getProjects, getSkills, personalProjects, personalSkills } from "../services/api.js";
 import ProjectCard from "../components/ProjectCard.jsx";
 import "./Projects.css";
 
 export default function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [skills, setSkills] = useState([]);
+  const [projects, setProjects] = useState(personalProjects);
+  const [skills, setSkills] = useState(personalSkills);
   const [activeStack, setActiveStack] = useState("all");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     Promise.allSettled([getProjects(), getSkills()])
       .then(([projectResult, skillResult]) => {
-        if (projectResult.status === "fulfilled") setProjects(projectResult.value);
-        else setError("Couldn't load projects right now. Try again in a moment.");
+        if (projectResult.status === "fulfilled" && projectResult.value.length) setProjects(projectResult.value);
+        else if (!projects.length) setError("Couldn't load projects right now. Try again in a moment.");
         if (skillResult.status === "fulfilled") setSkills(skillResult.value);
       })
       .finally(() => setLoading(false));
@@ -47,6 +47,9 @@ export default function Projects() {
       {availableStacks.length > 0 && (
         <div className="stack-filter" role="tablist" aria-label="Filter projects by stack">
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeStack === "all"}
             className={activeStack === "all" ? "chip chip-active" : "chip"}
             onClick={() => setActiveStack("all")}
           >
@@ -55,6 +58,9 @@ export default function Projects() {
           {availableStacks.map((skill) => (
             <button
               key={skill.id}
+              type="button"
+              role="tab"
+              aria-selected={activeStack === skill.name}
               className={activeStack === skill.name ? "chip chip-active" : "chip"}
               onClick={() => setActiveStack(skill.name)}
             >
@@ -66,7 +72,7 @@ export default function Projects() {
 
       {loading ? (
         <p className="section-note" aria-live="polite">
-          Loading projects… The portfolio server may take a moment to start.
+          Loading projects…
         </p>
       ) : error ? (
         <div className="empty-state">

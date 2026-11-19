@@ -50,6 +50,9 @@ export default function ProjectDetail() {
     getProjectBySlug(slug)
       .then((data) => {
         setProject(data);
+        document.title = `${data.title} — Vincent Kaikai`;
+        const description = document.querySelector('meta[name="description"]');
+        if (description && data.description) description.content = data.description;
         setStatus("ready");
       })
       .catch((err) => {
@@ -67,7 +70,7 @@ export default function ProjectDetail() {
         <div className="container empty-state reveal-up">
           {status === "loading" && (
             <p aria-live="polite">
-              Loading project details… The portfolio server may take a moment to start.
+              Loading project details…
             </p>
           )}
           {status === "not_found" && <p>Couldn't find that project.</p>}

@@ -121,7 +121,7 @@ export default function Contact() {
           <span className="eyebrow">Contact</span>
           <h1>Let's build something intentional.</h1>
           <p className="contact-intro">
-            Whether you need to architect a resilient backend, design a deliberate user interface, or discuss a full-stack role — I'd love to hear about it. I read and reply to every message.
+            Whether you need a resilient backend, a deliberate user interface, or a full-stack developer, I’d love to hear about it. I usually reply within 24–48 hours.
           </p>
         </div>
       </header>
@@ -195,7 +195,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="vkaikai44@gmail.com"
+                      placeholder="kaikaivincent24@gmail.com"
                       required
                       value={form.email}
                       onChange={handleChange}
@@ -282,6 +282,9 @@ export default function Contact() {
               <p className="response-note">
                 I generally reply within 24–48 hours. If your request is urgent, please note that in your message.
               </p>
+              <a className="direct-email-link" href="mailto:kaikaivincent24@gmail.com">
+                Prefer email? kaikaivincent24@gmail.com
+              </a>
             </div>
 
             {socials && (

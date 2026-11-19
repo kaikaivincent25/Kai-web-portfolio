@@ -27,6 +27,27 @@ function ScrollToTop() {
   return null;
 }
 
+function PageMeta() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const pages = {
+      "/": { title: "Vincent Kaikai — Full-stack developer", description: "Vincent Kaikai builds practical web and mobile products with React, React Native, FastAPI, and PostgreSQL." },
+      "/about": { title: "About Vincent Kaikai — Software developer", description: "Learn about Vincent Kaikai’s approach to building practical, user-focused web and mobile software." },
+      "/projects": { title: "Projects — Vincent Kaikai", description: "Selected web and mobile projects built with React, React Native, FastAPI, PostgreSQL, and CSS." },
+      "/contact": { title: "Contact Vincent Kaikai", description: "Get in touch with Vincent Kaikai about a software role, collaboration, or product to build." },
+    };
+    const page = pages[pathname] || pages["/"];
+    document.title = page.title;
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.content = page.description;
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = `https://vincentkaikai.vercel.app${pathname}`;
+  }, [pathname]);
+
+  return null;
+}
+
 export default function App() {
   const { pathname } = useLocation();
 
@@ -37,6 +58,7 @@ export default function App() {
   return (
     <div className="app-layout">
       <ScrollToTop />
+      <PageMeta />
       <Navbar />
       
       {/* 
